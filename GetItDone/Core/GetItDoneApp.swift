@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct GetItDoneApp: App {
+    
+    // TODO: Configure Firebase
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
         }
     }
+    
 }
