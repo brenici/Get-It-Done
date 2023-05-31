@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// The class serves as the ViewModel for the MainView
+/// The class serves as the ViewModel for the `MainView`
 ///
 /// The class is final and includes user authentication control and other functions
 final class MainViewViewModel: ObservableObject {
