@@ -13,10 +13,12 @@ import SwiftUI
 ///
 final class MainViewViewModel: ObservableObject {
     
-    // TODO: Add user authentication
+    @Published var currentUserId: String = ""
     
     init() {}
     
     deinit {}
+
+    // TODO: Add user authentication
     
 }

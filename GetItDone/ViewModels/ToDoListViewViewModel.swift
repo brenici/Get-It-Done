@@ -13,8 +13,43 @@ import SwiftUI
 ///
 final class ToDoListViewViewModel: ObservableObject {
     
-    init() {}
+    let mockItem = ToDoItem(
+        id: "UUID().uuidString",
+        title: "To Do Item",
+        dueTime: (Date() + (7 * 24 * 60 * 60)).timeIntervalSince1970,
+        creationTime: Date().timeIntervalSince1970,
+        isDone: false)
+    
+    @Published var items: [ToDoItem] = []
+    private let userId: String
+    
+    /// Initialized the ViewModel with the `userId`
+    /// - Parameter userId: user ID
+    init(userId: String) {
+        self.userId = userId
+        getAllItems(for: userId)
+    }
+        
+    /// Retrieves all items for a specific user.
+    ///
+    /// - Parameter userId: The user ID of the logged-in user.
+    ///
+    ///  - Important: This method assigns an array of a mock item to the list of items.
+    ///
+    ///  - Note: Replace the mock item(s) with the actual implementation to fetch and populate the list of items for the user.
+    ///
+    func getAllItems(for userId: String) {
+        self.items = Array.init(repeating: mockItem, count: 10)
+    }
+    
+    // TODO: all CRUD methods
 
-    // TODO: Items CRUD
+    func createItem() {}
+    
+    func getItem(itemId: String) {}
+    
+    func updateItem(itemId: String) {}
+
+    func deleteItem(itemId: String) {}
 
 }

@@ -13,8 +13,9 @@ struct MainView: View {
     @StateObject var viewModel = MainViewViewModel()
         
     var body: some View {
-        Text("Get It Done!")
-            .padding()
+//        if is logged in {
+        ToDoListView(userId: viewModel.currentUserId)
+//        }
     }
 }
 

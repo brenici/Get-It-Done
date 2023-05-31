@@ -11,18 +11,32 @@ import SwiftUI
 ///
 struct ToDoListView: View {
     
-    @StateObject var viewModel = ToDoListViewViewModel()
+    @StateObject var viewModel: ToDoListViewViewModel
     
-    init() {}
+    init(userId: String) {
+        self._viewModel = StateObject(
+            wrappedValue: ToDoListViewViewModel(userId: userId)
+        )
+    }
     
     var body: some View {
         NavigationView {
             VStack {
-                Text("No items...")
-                Text("List of items...")
+                List(viewModel.items) { item in
+                    VStack {
+                        Text("Title: \(item.title)")
+                        Text("Due time: " +
+                             Date(timeIntervalSince1970: item.dueTime)
+                                .formatted(date: .abbreviated, time: .shortened))
+                        Text("Created: " +
+                             Date(timeIntervalSince1970: item.creationTime)
+                                .formatted(date: .abbreviated, time: .shortened))
+                    }
+                }
             }
             .navigationTitle("To Do List")
         }
+        .navigationViewStyle(.stack)
     }
     
 }
@@ -30,7 +44,7 @@ struct ToDoListView: View {
 struct ToDoListView_Previews: PreviewProvider {
     
     static var previews: some View {
-        ToDoListView()
+        ToDoListView(userId: "1234")
     }
 
 }
