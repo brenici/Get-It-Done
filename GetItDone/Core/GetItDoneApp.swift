@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct GetItDoneApp: App {
     
-    // TODO: Configure Firebase
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {
