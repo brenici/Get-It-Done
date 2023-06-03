@@ -29,6 +29,7 @@
 		7A93B50D2A2B70500040BEB3 /* EncodableExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B50C2A2B70500040BEB3 /* EncodableExtension.swift */; };
 		7A93B50F2A2B8D7D0040BEB3 /* ToDoListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B50E2A2B8D7D0040BEB3 /* ToDoListItemView.swift */; };
 		7A93B5112A2B8DFD0040BEB3 /* ToDoListItemViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B5102A2B8DFD0040BEB3 /* ToDoListItemViewViewModel.swift */; };
+		7A93B5132A2B92E60040BEB3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B5122A2B92E60040BEB3 /* StorageManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		7A93B50C2A2B70500040BEB3 /* EncodableExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableExtension.swift; sourceTree = "<group>"; };
 		7A93B50E2A2B8D7D0040BEB3 /* ToDoListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItemView.swift; sourceTree = "<group>"; };
 		7A93B5102A2B8DFD0040BEB3 /* ToDoListItemViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListItemViewViewModel.swift; sourceTree = "<group>"; };
+		7A93B5122A2B92E60040BEB3 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 			children = (
 				7A93B5042A2B67CF0040BEB3 /* Extensions */,
 				7A93B5082A2B6E700040BEB3 /* AuthManager.swift */,
+				7A93B5122A2B92E60040BEB3 /* StorageManager.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A93B5132A2B92E60040BEB3 /* StorageManager.swift in Sources */,
 				7A93B5032A2B600C0040BEB3 /* SignUpViewViewModel.swift in Sources */,
 				7A0DF8842A2776F100DAB8BA /* MainView.swift in Sources */,
 				7A93B5112A2B8DFD0040BEB3 /* ToDoListItemViewViewModel.swift in Sources */,

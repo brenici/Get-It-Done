@@ -35,7 +35,7 @@ final class SignUpViewViewModel: ObservableObject {
                             email: self?.email ?? "",
                             signupTime: Date().timeIntervalSince1970)
                         print("Adding signup time")
-                        AuthManager.shared.updateData(for: newUser)
+                        StorageManager.shared.updateUser(with: newUser)
                     case .failure(let error):
                         print("Login Error: \(error.localizedDescription)")
                 }
@@ -46,7 +46,7 @@ final class SignUpViewViewModel: ObservableObject {
     /// Validates the entries in the sign-up form.
     ///
     /// - Returns: A Boolean value indicating whether the sign-up form entries are valid.
-     private func validateSignUpForm() -> Bool {
+    private func validateSignUpForm() -> Bool {
         print("Validating Sign-up Form Entries")
         guard !fullName.trimmingCharacters(in: .whitespaces).isEmpty,
               !email.trimmingCharacters(in: .whitespaces).isEmpty,
