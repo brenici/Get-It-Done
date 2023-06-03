@@ -22,15 +22,7 @@ struct ToDoListView: View {
         NavigationView {
             VStack {
                 List(viewModel.items) { item in
-                    VStack {
-                        Text("Title: \(item.title)")
-                        Text("Due time: " +
-                             Date(timeIntervalSince1970: item.dueTime)
-                                .formatted(date: .abbreviated, time: .shortened))
-                        Text("Created: " +
-                             Date(timeIntervalSince1970: item.creationTime)
-                                .formatted(date: .abbreviated, time: .shortened))
-                    }
+                    ToDoListItemView(item: item)
                 }
                 Button {
                     viewModel.logOut()
