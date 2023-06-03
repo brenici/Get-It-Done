@@ -22,12 +22,13 @@ struct LoginView: View {
                     SecureField("Password", text: $viewModel.password)
                         .disableAutocorrection(true)
                         .autocapitalization(.none)
-                    Button {
+                    ButtonView(
+                        title: "Log In",
+                        tint: .blue
+                    ) {
                         viewModel.login()
-                    } label: {
-                        Text("Log In")
                     }
-                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 10)
                 }
                 VStack (spacing: 10) {
                     Text("New user? Get It Done now!")

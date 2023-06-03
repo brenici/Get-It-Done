@@ -28,12 +28,13 @@ struct SignUpView: View {
                 SecureField("Repeat Password", text: $viewModel.repeatedPassword)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
-                Button {
+                ButtonView(
+                    title: "Sign Up",
+                    tint: .orange
+                ) {
                     viewModel.signUp()
-                } label: {
-                    Text("Sign Up")
                 }
-                .frame(maxWidth: .infinity)
+                .padding(.vertical, 10)
             }
             VStack (spacing: 10) {
                 Text("Already Registered?")

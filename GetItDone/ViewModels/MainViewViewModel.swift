@@ -5,7 +5,7 @@
 //  Created by Emilian Brenici on 31/05/2023.
 //
 
-import SwiftUI
+import Foundation
 
 /// The class serves as ViewModel for the `MainView`
 final class MainViewViewModel: ObservableObject {

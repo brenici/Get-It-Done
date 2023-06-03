@@ -5,7 +5,7 @@
 //  Created by Emilian Brenici on 03/06/2023.
 //
 
-import SwiftUI
+import Foundation
 
 final class SignUpViewViewModel: ObservableObject {
     
