@@ -17,9 +17,9 @@ final class NewItemViewViewModel: ObservableObject {
         guard validate() else {
             return
         }
-        let userID = AuthManager.shared.currentUserId
+        let userId = AuthManager.shared.currentUserId
         let newItem = buildNewItem()
-        StorageManager.shared.createItem(newItem, for: userID)
+        StorageManager.shared.createItem(newItem, for: userId)
     }
     
     /// Builds a new ToDoItem object based on title and dueTime and using a UUID unique id

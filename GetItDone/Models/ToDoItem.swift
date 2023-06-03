@@ -18,4 +18,8 @@ struct ToDoItem: Codable, Identifiable, Hashable {
     let creationTime: TimeInterval
     var isDone: Bool
     
+    mutating public func toggleIsDone(_ state: Bool) {
+        self.isDone = state
+    }
+    
 }

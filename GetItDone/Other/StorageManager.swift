@@ -52,6 +52,14 @@ final class StorageManager {
             .document(item.id)
             .setData(item.asDictionary())
     }
+    
+    public func updateItem(_ item: ToDoItem, for userId: String) {
+        db.collection(usersCollectionKey)
+            .document(userId)
+            .collection(itemsCollectionKey)
+            .document(item.id)
+            .setData(item.asDictionary())
+    }
 
     public func getItem(id: String) {}
 
