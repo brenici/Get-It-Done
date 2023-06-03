@@ -13,11 +13,11 @@ struct MainView: View {
     @StateObject var viewModel = MainViewViewModel()
         
     var body: some View {
-//        if is logged in {
-//            ToDoListView(userId: viewModel.currentUserId)
-//        } else {
+        if viewModel.isLoggedIn && !viewModel.currentUserId.isEmpty {
+            ToDoListView(userId: viewModel.currentUserId)
+        } else {
             LoginView()
-//        }
+        }
     }
 }
 

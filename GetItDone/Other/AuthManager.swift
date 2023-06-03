@@ -14,7 +14,45 @@ final class AuthManager {
 
     static let shared = AuthManager()
     
+    @Published var currentUserId: String = ""
+    
+    private var handler: AuthStateDidChangeListenerHandle?
+    
+    public var isLoggedIn: Bool {
+        return Auth.auth().currentUser != nil
+    }
+    
     private let db = Firestore.firestore()
+    
+    // MARK: - Initialization
+    
+    private init() {
+        addAuthStateChangeListener()
+    }
+    
+    deinit {
+        removeAuthStateChangeListener()
+    }
+    
+    // MARK: - Authentication state observer
+
+    /// Starts observing changes in the authentication state.
+    /// - Parameter completion: A closure to be called when the authentication state changes. The closure receives a boolean value indicating if the user is logged in or not.
+    ///
+    func addAuthStateChangeListener() {
+        self.handler = Auth.auth().addStateDidChangeListener { [weak self] _, user in
+            DispatchQueue.main.async {
+                self?.currentUserId = user?.uid ?? ""
+            }
+        }
+    }
+    
+    /// Stops observing changes in the authentication state.
+    func removeAuthStateChangeListener() {
+        if let handler = handler {
+            Auth.auth().removeStateDidChangeListener(handler)
+        }
+    }
     
     // MARK: - Authentication
     
