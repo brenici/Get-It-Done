@@ -11,6 +11,7 @@ final class LoginViewViewModel: ObservableObject {
     
     @Published var email = ""
     @Published var password = ""
+    @Published var errorMessage = ""
     
     /// Initiates the sign-up process.
     public func login() {
@@ -19,12 +20,13 @@ final class LoginViewViewModel: ObservableObject {
             return
         }
         print("Attempting to log in ...")
-        AuthManager.shared.login(with: email, password) { result in
+        AuthManager.shared.login(with: email, password) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                     case .success:
                         print("Successfully logged in")
                     case .failure(let error):
+                        self?.errorMessage = "Please enter a valid email and password"
                         print("Login Error: \(error.localizedDescription)")
                 }
             }
@@ -39,11 +41,11 @@ final class LoginViewViewModel: ObservableObject {
         guard !email.trimmingCharacters(in: .whitespaces).isEmpty,
               !password.trimmingCharacters(in: .whitespaces).isEmpty
         else {
-            print("Please fill out all fields!")
+            errorMessage = "Please fill out all fields!"
             return false
         }
         guard email.isValidEmail else {
-            print("Please enter a valid email!")
+            errorMessage = "Please enter a valid email!"
             return false
         }
         print("Login Form validation success")

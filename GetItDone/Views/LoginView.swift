@@ -11,24 +11,28 @@ import SwiftUI
 struct LoginView: View {
     
     @StateObject var viewModel = LoginViewViewModel()
-    
+
     var body: some View {
         NavigationView {
             VStack {
                 Form {
-                    TextField("Email", text: $viewModel.email)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                    SecureField("Password", text: $viewModel.password)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                    ButtonView(
-                        title: "Log In",
-                        tint: .blue
+                    Section (
+                        header: ErrorMessageView(errorMessage: $viewModel.errorMessage)
                     ) {
-                        viewModel.login()
+                        TextField("Email", text: $viewModel.email)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                        SecureField("Password", text: $viewModel.password)
+                            .disableAutocorrection(true)
+                            .autocapitalization(.none)
+                        ButtonView(
+                            title: "Log In",
+                            tint: .blue
+                        ) {
+                            viewModel.login()
+                        }
+                        .padding(.vertical, 10)
                     }
-                    .padding(.vertical, 10)
                 }
                 VStack (spacing: 10) {
                     Text("New user? Get It Done now!")
@@ -39,8 +43,9 @@ struct LoginView: View {
                 }
             }
             .navigationTitle("Login")
+            .padding(.bottom, UIScreen.main.bounds.height * 0.05)
         }
-        .navigationViewStyle(.stack)
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
 }

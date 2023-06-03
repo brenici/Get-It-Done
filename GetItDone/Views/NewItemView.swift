@@ -18,9 +18,13 @@ struct NewItemView: View {
                 .font(.title3)
                 .bold()
             Form {
-                TextField("Title", text: $viewModel.title)
-                DatePicker("Due Date and Time", selection: $viewModel.dueTime)
-                    .datePickerStyle(.graphical)
+                Section (
+                    header: ErrorMessageView(errorMessage: $viewModel.errorMessage)
+                ) {
+                    TextField("Title", text: $viewModel.title)
+                    DatePicker("Due Date and Time", selection: $viewModel.dueTime)
+                        .datePickerStyle(.graphical)
+                }
             }
             Button {
                 if viewModel.validate() {

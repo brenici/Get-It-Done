@@ -19,6 +19,7 @@
 		7A3937472A2A793D0082F459 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3937462A2A793D0082F459 /* FirebaseFirestore */; };
 		7A3937492A2A793D0082F459 /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7A3937482A2A793D0082F459 /* FirebaseFirestoreSwift */; };
 		7A55AA782A2BDA600057CD6A /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A55AA772A2BDA600057CD6A /* ButtonView.swift */; };
+		7A55AA7A2A2BE4250057CD6A /* ErrorMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A55AA792A2BE4250057CD6A /* ErrorMessageView.swift */; };
 		7A93B4F92A2B53CF0040BEB3 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B4F82A2B53CF0040BEB3 /* User.swift */; };
 		7A93B4FB2A2B56080040BEB3 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B4FA2A2B56080040BEB3 /* LoginView.swift */; };
 		7A93B4FD2A2B59570040BEB3 /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B4FC2A2B59570040BEB3 /* LoginViewViewModel.swift */; };
@@ -47,6 +48,7 @@
 		7A0DF8992A27904300DAB8BA /* ToDoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListView.swift; sourceTree = "<group>"; };
 		7A0DF89B2A27905500DAB8BA /* ToDoListViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoListViewViewModel.swift; sourceTree = "<group>"; };
 		7A55AA772A2BDA600057CD6A /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
+		7A55AA792A2BE4250057CD6A /* ErrorMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorMessageView.swift; sourceTree = "<group>"; };
 		7A93B4F82A2B53CF0040BEB3 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7A93B4FA2A2B56080040BEB3 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		7A93B4FC2A2B59570040BEB3 /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				7A93B5082A2B6E700040BEB3 /* AuthManager.swift */,
 				7A93B5122A2B92E60040BEB3 /* StorageManager.swift */,
 				7A93B51A2A2BC8B50040BEB3 /* SortOption.swift */,
+				7A55AA792A2BE4250057CD6A /* ErrorMessageView.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				7A93B4FD2A2B59570040BEB3 /* LoginViewViewModel.swift in Sources */,
 				7A0DF8902A2783A600DAB8BA /* MainViewViewModel.swift in Sources */,
 				7A93B5012A2B5FD50040BEB3 /* SignUpView.swift in Sources */,
+				7A55AA7A2A2BE4250057CD6A /* ErrorMessageView.swift in Sources */,
 				7A93B5072A2B67FD0040BEB3 /* StringExtension.swift in Sources */,
 				7A93B50F2A2B8D7D0040BEB3 /* ToDoListItemView.swift in Sources */,
 				7A0DF89A2A27904300DAB8BA /* ToDoListView.swift in Sources */,

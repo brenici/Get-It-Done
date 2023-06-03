@@ -11,6 +11,7 @@ final class NewItemViewViewModel: ObservableObject {
     
     @Published var title = ""
     @Published var dueTime = Date()
+    @Published var errorMessage = ""
     
     func saveNewItem() {
         print("creating new item...")
@@ -36,11 +37,11 @@ final class NewItemViewViewModel: ObservableObject {
         
     public func validate() -> Bool {
         guard !title.trimmingCharacters(in: .whitespaces).isEmpty else {
-            print("Please enter a title!")
+            errorMessage = "Please enter a title!"
             return false
         }
         guard isDueTimeValid(dueTime) else {
-            print("Ensure date and time are in the future!")
+            errorMessage = "Ensure date and time are in the future!"
             return false
         }
         return true

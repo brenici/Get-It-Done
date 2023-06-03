@@ -16,25 +16,29 @@ struct SignUpView: View {
     var body: some View {
         VStack {
             Form {
-                TextField("FullName", text: $viewModel.fullName)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                TextField("Email", text: $viewModel.email)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                SecureField("Password", text: $viewModel.password)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                SecureField("Repeat Password", text: $viewModel.repeatedPassword)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                ButtonView(
-                    title: "Sign Up",
-                    tint: .orange
+                Section (
+                    header: ErrorMessageView(errorMessage: $viewModel.errorMessage)
                 ) {
-                    viewModel.signUp()
+                    TextField("FullName", text: $viewModel.fullName)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                    TextField("Email", text: $viewModel.email)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                    SecureField("Password", text: $viewModel.password)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                    SecureField("Repeat Password", text: $viewModel.repeatedPassword)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
+                    ButtonView(
+                        title: "Sign Up",
+                        tint: .orange
+                    ) {
+                        viewModel.signUp()
+                    }
+                    .padding(.vertical, 10)
                 }
-                .padding(.vertical, 10)
             }
             VStack (spacing: 10) {
                 Text("Already Registered?")
@@ -45,6 +49,7 @@ struct SignUpView: View {
                 }
             }
         }
+        .padding(.bottom, UIScreen.main.bounds.height * 0.05)
     }
     
 }

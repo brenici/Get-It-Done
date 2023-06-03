@@ -13,6 +13,7 @@ final class SignUpViewViewModel: ObservableObject {
     @Published var email = ""
     @Published var password = ""
     @Published var repeatedPassword = ""
+    @Published var errorMessage = ""
     
     /// Initiates the sign-up process.
     public func signUp() {
@@ -53,19 +54,19 @@ final class SignUpViewViewModel: ObservableObject {
               !password.trimmingCharacters(in: .whitespaces).isEmpty,
               !repeatedPassword.trimmingCharacters(in: .whitespaces).isEmpty
         else {
-            print("Please fill out all fields!")
+            errorMessage = "Please fill out all fields!"
             return false
         }
         guard email.isValidEmail else {
-            print("Please enter a valid email!")
+            errorMessage = "Please enter a valid email!"
             return false
         }
         guard password.count >= 8 else {
-            print("Password must be 8+ characters!")
+            errorMessage = "Password must be 8+ characters!"
             return false
         }
         guard password == repeatedPassword else {
-            print("Passwords do not match!")
+            errorMessage = "Passwords do not match!"
             return false
         }
         print("Sign-up Form validation success")
