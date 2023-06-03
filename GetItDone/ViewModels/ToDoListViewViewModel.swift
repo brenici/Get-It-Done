@@ -14,7 +14,7 @@ import SwiftUI
 final class ToDoListViewViewModel: ObservableObject {
     
     let mockItem = ToDoItem(
-        id: "UUID().uuidString",
+        id: UUID().uuidString, // intentionally unique
         title: "To Do Item",
         dueTime: (Date() + (7 * 24 * 60 * 60)).timeIntervalSince1970,
         creationTime: Date().timeIntervalSince1970,
@@ -36,10 +36,11 @@ final class ToDoListViewViewModel: ObservableObject {
     ///
     ///  - Important: This method assigns an array of a mock item to the list of items.
     ///
-    ///  - Note: Replace the mock item(s) with the actual implementation to fetch and populate the list of items for the user.
+    ///  - Note: Replace the mock item(s) with the actual implementation to fetch and populate the list of items for the logged in user.
     ///
     func getAllItems(for userId: String) {
-        self.items = Array.init(repeating: mockItem, count: 10)
+        self.items = Array.init(repeating: mockItem, count: 10) // Note: the ToDoItem id is the same for all items!
+        // TODO: replace the mock items
     }
     
     // TODO: all CRUD methods
@@ -51,5 +52,10 @@ final class ToDoListViewViewModel: ObservableObject {
     func updateItem(itemId: String) {}
 
     func deleteItem(itemId: String) {}
+    
+    // TODO: Move to user account view
+    public func logOut() {
+        AuthManager.shared.signOut()
+    }
 
 }

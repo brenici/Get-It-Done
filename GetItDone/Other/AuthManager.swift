@@ -78,8 +78,18 @@ final class AuthManager {
         }
     }
     
+    /// Signs out the currently logged in user.
+    func signOut() {
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("Error signing out: \(error.localizedDescription)")
+        }
+    }
+    
     // MARK: - Storage
     
+    /// Updates the user data.
     func updateData(for user: User) {
         db.collection("users")
             .document(user.id)

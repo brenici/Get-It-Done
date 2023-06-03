@@ -32,6 +32,12 @@ struct ToDoListView: View {
                                 .formatted(date: .abbreviated, time: .shortened))
                     }
                 }
+                Button {
+                    viewModel.logOut()
+                } label: {
+                    Text("Log out")
+                }
+                .tint(.red)
             }
             .navigationTitle("To Do List")
         }
