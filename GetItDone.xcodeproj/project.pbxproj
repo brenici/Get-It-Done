@@ -24,6 +24,7 @@
 		7A93B4FF2A2B5C420040BEB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A93B4FE2A2B5C420040BEB3 /* GoogleService-Info.plist */; };
 		7A93B5012A2B5FD50040BEB3 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B5002A2B5FD50040BEB3 /* SignUpView.swift */; };
 		7A93B5032A2B600C0040BEB3 /* SignUpViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B5022A2B600C0040BEB3 /* SignUpViewViewModel.swift */; };
+		7A93B5072A2B67FD0040BEB3 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B5062A2B67FD0040BEB3 /* StringExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		7A93B4FE2A2B5C420040BEB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7A93B5002A2B5FD50040BEB3 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		7A93B5022A2B600C0040BEB3 /* SignUpViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewViewModel.swift; sourceTree = "<group>"; };
+		7A93B5062A2B67FD0040BEB3 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +85,7 @@
 				7A0DF8912A27863100DAB8BA /* ViewModels */,
 				7A0DF8922A27864B00DAB8BA /* Views */,
 				7A0DF8852A2776F500DAB8BA /* Assets.xcassets */,
+				7A93B5052A2B67DF0040BEB3 /* Other */,
 				7A0DF8872A2776F500DAB8BA /* Preview Content */,
 			);
 			path = GetItDone;
@@ -133,6 +136,22 @@
 				7A0DF8812A2776F100DAB8BA /* GetItDoneApp.swift */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		7A93B5042A2B67CF0040BEB3 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7A93B5062A2B67FD0040BEB3 /* StringExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7A93B5052A2B67DF0040BEB3 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				7A93B5042A2B67CF0040BEB3 /* Extensions */,
+			);
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -222,6 +241,7 @@
 				7A93B4FD2A2B59570040BEB3 /* LoginViewViewModel.swift in Sources */,
 				7A0DF8902A2783A600DAB8BA /* MainViewViewModel.swift in Sources */,
 				7A93B5012A2B5FD50040BEB3 /* SignUpView.swift in Sources */,
+				7A93B5072A2B67FD0040BEB3 /* StringExtension.swift in Sources */,
 				7A0DF89A2A27904300DAB8BA /* ToDoListView.swift in Sources */,
 				7A93B4FB2A2B56080040BEB3 /* LoginView.swift in Sources */,
 				7A93B4F92A2B53CF0040BEB3 /* User.swift in Sources */,
