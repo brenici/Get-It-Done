@@ -13,10 +13,11 @@ struct NewItemView: View {
     @Binding var isNewItemPresented: Bool
 
     var body: some View {
-        VStack (spacing: 0) {
+        VStack(spacing: 0) {
             Text("New Item")
                 .font(.title3)
                 .bold()
+                .padding(.top, 20)
             Form {
                 Section (
                     header: ErrorMessageView(errorMessage: $viewModel.errorMessage)
@@ -24,17 +25,20 @@ struct NewItemView: View {
                     TextField("Title", text: $viewModel.title)
                     DatePicker("Due Date and Time", selection: $viewModel.dueTime)
                         .datePickerStyle(.graphical)
+                    ButtonView(
+                        title: "Save",
+                        tint: .green
+                    ) {
+                        if viewModel.validate() {
+                            viewModel.saveNewItem()
+                            isNewItemPresented = false
+                        }
+                    }
+                    .padding(.vertical, 10)
                 }
-            }
-            Button {
-                if viewModel.validate() {
-                    viewModel.saveNewItem()
-                    isNewItemPresented = false
-                }
-            } label: {
-                Text("Save")
             }
         }
+        Spacer()
     }
 
 }

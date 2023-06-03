@@ -66,6 +66,8 @@ struct ToDoListView: View {
                     .tint(Color.red)
                 }
         }
+        .listStyle(.plain)
+        .animation(.easeInOut, value: items)
     }
     
     /// A placeholder view to replace the List with 0 items.
