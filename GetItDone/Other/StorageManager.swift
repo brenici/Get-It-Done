@@ -63,9 +63,13 @@ final class StorageManager {
 
     public func getItem(id: String) {}
 
-    public func updateItem(id: String) {}
-
-    public func deleteItem(id: String) {}
+    public func deleteItem(_ itemId: String, for userId: String) {
+        db.collection(usersCollectionKey)
+            .document(userId)
+            .collection(itemsCollectionKey)
+            .document(itemId)
+            .delete()
+    }
     
     // MARK: - User Storage
     

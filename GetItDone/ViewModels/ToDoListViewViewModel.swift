@@ -52,7 +52,9 @@ final class ToDoListViewViewModel: ObservableObject {
     
     func updateItem(itemId: String) {}
 
-    func deleteItem(itemId: String) {}
+    public func deleteItem(with itemId: String) {
+        storageManager.deleteItem(itemId, for: userId)
+    }
     
     // TODO: Move to user account view
     public func logOut() {

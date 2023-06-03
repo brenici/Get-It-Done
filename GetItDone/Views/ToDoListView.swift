@@ -23,6 +23,14 @@ struct ToDoListView: View {
             VStack {
                 List(viewModel.items) { item in
                     ToDoListItemView(item: item)
+                        .swipeActions {
+                            Button {
+                                viewModel.deleteItem(with: item.id)
+                            } label: {
+                                Text("Delete")
+                            }
+                            .tint(Color.red)
+                        }
                 }
                 Button {
                     viewModel.logOut()
