@@ -14,7 +14,7 @@ final class LoginViewViewModel: ObservableObject {
     
     public func login() {
         guard validateLoginForm() else {
-            print("Form Validation Error")
+            print("Login Form Validation Error")
             return
         }
         print("Login ...")
@@ -22,7 +22,7 @@ final class LoginViewViewModel: ObservableObject {
     }
     
     private func validateLoginForm() -> Bool {
-        print("Validate Form Entries")
+        print("Validate Login Form Entries")
         return true
     }
     

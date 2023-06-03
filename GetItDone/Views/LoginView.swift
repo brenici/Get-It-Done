@@ -24,6 +24,13 @@ struct LoginView: View {
                     }
                     .frame(maxWidth: .infinity)
                 }
+                VStack (spacing: 10) {
+                    Text("New user? Get It Done now!")
+                    NavigationLink(
+                        "Create An Account",
+                        destination: SignUpView()
+                    )
+                }
             }
             .navigationTitle("Login")
         }
