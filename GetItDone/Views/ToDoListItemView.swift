@@ -14,7 +14,14 @@ struct ToDoListItemView: View {
     let item: ToDoItem
     
     var body: some View {
-        HStack {
+        HStack(spacing: 16) {
+            Button{
+                viewModel.toggleIsDone(for: item)
+            } label: {
+                Image(systemName: item.isDone ? "checkmark.circle.fill" : "circle")
+                    .font(.title2)
+                    .foregroundColor(.blue)
+            }
             VStack(alignment: .leading) {
                 Text(item.title)
                     .font(.title3)
@@ -25,14 +32,6 @@ struct ToDoListItemView: View {
                     )
                 )
                 .foregroundColor(Color(.secondaryLabel))
-            }
-            Spacer()
-            Button{
-                viewModel.toggleIsDone(for: item)
-            } label: {
-                Image(systemName: item.isDone ? "checkmark.circle.fill" : "circle")
-                    .font(.title2)
-                    .foregroundColor(.blue)
             }
         }
     }

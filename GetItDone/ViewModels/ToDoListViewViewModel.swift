@@ -45,8 +45,6 @@ final class ToDoListViewViewModel: ObservableObject {
     }
     
     // TODO: all CRUD methods
-
-    func createItem() {}
     
     func getItem(itemId: String) {}
     
