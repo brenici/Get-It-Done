@@ -32,6 +32,16 @@ struct ToDoListView: View {
                 .tint(.red)
             }
             .navigationTitle("To Do List")
+            .toolbar {
+                Button {
+                    viewModel.isShowingNewItemView = true
+                } label: {
+                    Image(systemName: "plus")
+                }
+            }
+            .sheet(isPresented: $viewModel.isShowingNewItemView) {
+                NewItemView(isNewItemPresented: $viewModel.isShowingNewItemView)
+            }
         }
         .navigationViewStyle(.stack)
     }

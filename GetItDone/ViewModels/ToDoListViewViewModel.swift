@@ -13,6 +13,7 @@ import SwiftUI
 ///
 final class ToDoListViewViewModel: ObservableObject {
     
+    @Published var isShowingNewItemView = false
     @Published var items: [ToDoItem] = []
     
     private let userId: String

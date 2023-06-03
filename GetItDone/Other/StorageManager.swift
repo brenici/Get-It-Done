@@ -13,6 +13,9 @@ final class StorageManager {
     
     static let shared = StorageManager()
 
+    private let usersCollectionKey = "users"
+    private let itemsCollectionKey = "todoItems"
+
     private let db = Firestore.firestore()
 
     // MARK: - Items Storage
@@ -21,7 +24,13 @@ final class StorageManager {
 
     public func getAllItems() {}
 
-    public func createItem() {}
+    public func createItem(_ item: ToDoItem, for userId: String) {
+        db.collection(usersCollectionKey)
+            .document(userId)
+            .collection(itemsCollectionKey)
+            .document(item.id)
+            .setData(item.asDictionary())
+    }
 
     public func getItem(id: String) {}
 
@@ -33,7 +42,7 @@ final class StorageManager {
     
     /// Updates the user data.
     public func updateUser(with userObject: User) {
-        db.collection("users")
+        db.collection(usersCollectionKey)
             .document(userObject.id)
             .setData(userObject.asDictionary())
     }
