@@ -14,7 +14,9 @@ struct MainView: View {
         
     var body: some View {
 //        if is logged in {
-        ToDoListView(userId: viewModel.currentUserId)
+//            ToDoListView(userId: viewModel.currentUserId)
+//        } else {
+            LoginView()
 //        }
     }
 }
