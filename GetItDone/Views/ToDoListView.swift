@@ -22,17 +22,7 @@ struct ToDoListView: View {
         NavigationView {
             VStack {
                 if viewModel.items.count > 0 {
-                    List(viewModel.items) { item in
-                        ToDoListItemView(item: item)
-                            .swipeActions {
-                                Button {
-                                    viewModel.deleteItem(with: item.id)
-                                } label: {
-                                    Text("Delete")
-                                }
-                                .tint(Color.red)
-                            }
-                    }
+                    toDoItemsList
                 } else {
                     noItemsView
                 }
@@ -56,6 +46,20 @@ struct ToDoListView: View {
             }
         }
         .navigationViewStyle(.stack)
+    }
+    
+    @ViewBuilder private var toDoItemsList: some View {
+        List(viewModel.items) { item in
+            ToDoListItemView(item: item)
+                .swipeActions {
+                    Button {
+                        viewModel.deleteItem(with: item.id)
+                    } label: {
+                        Text("Delete")
+                    }
+                    .tint(Color.red)
+                }
+        }
     }
     
     /// A placeholder view to replace the List with 0 items.

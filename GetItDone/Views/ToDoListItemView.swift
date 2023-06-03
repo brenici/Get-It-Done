@@ -33,6 +33,7 @@ struct ToDoListItemView: View {
                 )
                 .foregroundColor(Color(.secondaryLabel))
             }
+            Spacer()
         }
     }
     
