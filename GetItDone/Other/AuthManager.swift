@@ -18,24 +18,31 @@ final class AuthManager {
     
     // MARK: - Authentication
     
-    /// Signs up a new user
-    func signUp(with fullName: String, _ email: String, _ password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { [weak self] result, error in
-            guard let userID = result?.user.uid else {
-                return
+    /// Attempts to log in an existing user
+    func login(with email: String, _ password: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(()))
             }
-            let newUser = User(
-                id: userID,
-                name: fullName,
-                email: email,
-                signupTime: Date().timeIntervalSince1970)
-            self?.insert(newUser)
+        }
+    }
+    
+    /// Signs up a new user
+    func signUp(with fullName: String, _ email: String, _ password: String, completion: @escaping (Result<String?, Error>) -> Void) {
+        Auth.auth().createUser(withEmail: email, password: password) { result, error in
+            if let error = error {
+                completion(.failure(error))
+            } else {
+                completion(.success(result?.user.uid))
+            }
         }
     }
     
     // MARK: - Storage
     
-    func insert(_ user: User) {
+    func updateData(for user: User) {
         db.collection("users")
             .document(user.id)
             .setData(user.asDictionary())

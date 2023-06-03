@@ -19,6 +19,16 @@ final class LoginViewViewModel: ObservableObject {
             return
         }
         print("Attempting to log in ...")
+        AuthManager.shared.login(with: email, password) { result in
+            DispatchQueue.main.async {
+                switch result {
+                    case .success:
+                        print("Successfully logged in")
+                    case .failure(let error):
+                        print("Login Error: \(error.localizedDescription)")
+                }
+            }
+        }
     }
     
     /// Validates the entries in the login form.

@@ -5,7 +5,7 @@
 //  Created by Emilian Brenici on 03/06/2023.
 //
 
-import Foundation
+import SwiftUI
 
 final class SignUpViewViewModel: ObservableObject {
     
@@ -21,7 +21,26 @@ final class SignUpViewViewModel: ObservableObject {
             return
         }
         print("Attempting to sign up ...")
-        AuthManager.shared.signUp(with: fullName, email, password)
+        AuthManager.shared.signUp(with: fullName, email, password) { [weak self]result in
+            DispatchQueue.main.async {
+                switch result {
+                    case .success(let userId):
+                        print("Successfully signed up")
+                        guard let id = userId else {
+                            return
+                        }
+                        let newUser = User(
+                            id: id,
+                            name: self?.fullName ?? "",
+                            email: self?.email ?? "",
+                            signupTime: Date().timeIntervalSince1970)
+                        print("Adding signup time")
+                        AuthManager.shared.updateData(for: newUser)
+                    case .failure(let error):
+                        print("Login Error: \(error.localizedDescription)")
+                }
+            }
+        }
     }
     
     /// Validates the entries in the sign-up form.
