@@ -56,6 +56,10 @@ final class ToDoListViewViewModel: ObservableObject {
         storageManager.deleteItem(itemId, for: userId)
     }
     
+    public func sortedItems(by sortOption: SortOption) -> [ToDoItem] {
+        return sortOption.sort(items: items)
+    }
+    
     // TODO: Move to user account view
     public func logOut() {
         AuthManager.shared.signOut()

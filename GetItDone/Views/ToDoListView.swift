@@ -11,7 +11,8 @@ import SwiftUI
 struct ToDoListView: View {
     
     @StateObject var viewModel: ToDoListViewViewModel
-    
+    @State private var sortOption = SortOption.created
+
     init(userId: String) {
         self._viewModel = StateObject(
             wrappedValue: ToDoListViewViewModel(userId: userId)
@@ -21,10 +22,14 @@ struct ToDoListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                if viewModel.items.count > 0 {
-                    toDoItemsList
-                } else {
+                switch viewModel.items.count {
+                case 0:
                     noItemsView
+                default:
+                    if viewModel.items.count > 1 {
+                        segmentedPickerView
+                    }
+                    toDoItemsList
                 }
                 Button {
                     viewModel.logOut()
@@ -49,7 +54,8 @@ struct ToDoListView: View {
     }
     
     @ViewBuilder private var toDoItemsList: some View {
-        List(viewModel.items) { item in
+        let items = viewModel.sortedItems(by: sortOption)
+        List(items) { item in
             ToDoListItemView(item: item)
                 .swipeActions {
                     Button {
@@ -74,6 +80,17 @@ struct ToDoListView: View {
             Spacer()
         }
         .foregroundColor(.gray).opacity(0.3)
+    }
+    
+    /// A segmented picker view used for sorting of ToDo items
+    @ViewBuilder private var segmentedPickerView: some View {
+        Picker("Sort By", selection: $sortOption) {
+            ForEach(SortOption.allCases, id: \.self) { option in
+                Text(option.rawValue).tag(option)
+            }
+        }
+        .pickerStyle(SegmentedPickerStyle())
+        .padding()
     }
     
 }

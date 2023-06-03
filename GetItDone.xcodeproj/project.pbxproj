@@ -32,10 +32,11 @@
 		7A93B5132A2B92E60040BEB3 /* StorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B5122A2B92E60040BEB3 /* StorageManager.swift */; };
 		7A93B5152A2B98040040BEB3 /* NewItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B5142A2B98040040BEB3 /* NewItemView.swift */; };
 		7A93B5172A2B981A0040BEB3 /* NewItemViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B5162A2B981A0040BEB3 /* NewItemViewViewModel.swift */; };
+		7A93B51B2A2BC8B50040BEB3 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B51A2A2BC8B50040BEB3 /* SortOption.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		7A0DF87E2A2776F100DAB8BA /* GetItDone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetItDone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A0DF87E2A2776F100DAB8BA /* Get It Done.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get It Done.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0DF8812A2776F100DAB8BA /* GetItDoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItDoneApp.swift; sourceTree = "<group>"; };
 		7A0DF8832A2776F100DAB8BA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		7A0DF8852A2776F500DAB8BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		7A93B5122A2B92E60040BEB3 /* StorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageManager.swift; sourceTree = "<group>"; };
 		7A93B5142A2B98040040BEB3 /* NewItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemView.swift; sourceTree = "<group>"; };
 		7A93B5162A2B981A0040BEB3 /* NewItemViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewViewModel.swift; sourceTree = "<group>"; };
+		7A93B51A2A2BC8B50040BEB3 /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,7 +88,7 @@
 		7A0DF87F2A2776F100DAB8BA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7A0DF87E2A2776F100DAB8BA /* GetItDone.app */,
+				7A0DF87E2A2776F100DAB8BA /* Get It Done.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -171,6 +173,7 @@
 				7A93B5042A2B67CF0040BEB3 /* Extensions */,
 				7A93B5082A2B6E700040BEB3 /* AuthManager.swift */,
 				7A93B5122A2B92E60040BEB3 /* StorageManager.swift */,
+				7A93B51A2A2BC8B50040BEB3 /* SortOption.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -197,7 +200,7 @@
 				7A3937482A2A793D0082F459 /* FirebaseFirestoreSwift */,
 			);
 			productName = GetItDone;
-			productReference = 7A0DF87E2A2776F100DAB8BA /* GetItDone.app */;
+			productReference = 7A0DF87E2A2776F100DAB8BA /* Get It Done.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -259,6 +262,7 @@
 				7A93B5032A2B600C0040BEB3 /* SignUpViewViewModel.swift in Sources */,
 				7A0DF8842A2776F100DAB8BA /* MainView.swift in Sources */,
 				7A93B5112A2B8DFD0040BEB3 /* ToDoListItemViewViewModel.swift in Sources */,
+				7A93B51B2A2BC8B50040BEB3 /* SortOption.swift in Sources */,
 				7A0DF89C2A27905500DAB8BA /* ToDoListViewViewModel.swift in Sources */,
 				7A93B5092A2B6E700040BEB3 /* AuthManager.swift in Sources */,
 				7A0DF8822A2776F100DAB8BA /* GetItDoneApp.swift in Sources */,
@@ -398,6 +402,7 @@
 		7A0DF88D2A2776F500DAB8BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_DISPLAY_NAME = "Get It Done";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -406,6 +411,7 @@
 				DEVELOPMENT_TEAM = 6V5CXQGM5E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_DISPLAY_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -418,7 +424,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.brenici.GetItDone;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Get It Done";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -428,6 +434,7 @@
 		7A0DF88E2A2776F500DAB8BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_DISPLAY_NAME = "Get It Done";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -436,6 +443,7 @@
 				DEVELOPMENT_TEAM = 6V5CXQGM5E;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "$(APP_DISPLAY_NAME)";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -448,7 +456,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.brenici.GetItDone;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Get It Done";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

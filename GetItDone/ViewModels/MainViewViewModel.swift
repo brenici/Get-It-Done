@@ -8,8 +8,6 @@
 import SwiftUI
 
 /// The class serves as ViewModel for the `MainView`
-///
-/// The class includes user authentication control and other functions
 final class MainViewViewModel: ObservableObject {
     
     @Published var currentUserId: String = ""
@@ -27,7 +25,7 @@ final class MainViewViewModel: ObservableObject {
         authManager.removeAuthStateChangeListener()
     }
 
-    /// Indicates whether the user is currently legged in.
+    /// Indicates whether the user is currently logged in.
     /// - Returns: `true` if the user is logged in, `false` otherwise.
     public var isLoggedIn: Bool {
         return authManager.isLoggedIn

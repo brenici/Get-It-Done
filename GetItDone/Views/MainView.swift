@@ -7,11 +7,13 @@
 
 import SwiftUI
 
-/// The main view of the app handling view navigation and responsible for presenting views based on user authentication.
+/// The main view of the app
+///
+/// Presents the views based on user authentication.
 struct MainView: View {
     
     @StateObject var viewModel = MainViewViewModel()
-        
+    
     var body: some View {
         if viewModel.isLoggedIn && !viewModel.currentUserId.isEmpty {
             ToDoListView(userId: viewModel.currentUserId)
