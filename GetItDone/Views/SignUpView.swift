@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+///  A Sign-up View for registration of new users.
 struct SignUpView: View {
 
     @StateObject var viewModel = SignUpViewViewModel()
@@ -15,11 +16,20 @@ struct SignUpView: View {
     var body: some View {
         VStack {
             Form {
+                TextField("FullName", text: $viewModel.fullName)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
                 TextField("Email", text: $viewModel.email)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
                 SecureField("Password", text: $viewModel.password)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
                 SecureField("Repeat Password", text: $viewModel.repeatedPassword)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
                 Button {
-                    viewModel.login()
+                    viewModel.signUp()
                 } label: {
                     Text("Sign Up")
                 }

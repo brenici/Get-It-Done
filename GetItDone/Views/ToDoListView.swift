@@ -7,8 +7,7 @@
 
 import SwiftUI
 
-///  The view displays the ToDo items provided by the ViewModel.
-///
+///  Displays the ToDo items provided by the ViewModel.
 struct ToDoListView: View {
     
     @StateObject var viewModel: ToDoListViewViewModel

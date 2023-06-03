@@ -14,13 +14,14 @@ final class SignUpViewViewModel: ObservableObject {
     @Published var password = ""
     @Published var repeatedPassword = ""
     
-    /// Initiates the login process.
-    public func login() {
+    /// Initiates the sign-up process.
+    public func signUp() {
         guard validateSignUpForm() else {
             print("Sign-up Form Validation Error")
             return
         }
         print("Attempting to sign up ...")
+        AuthManager.shared.signUp(with: fullName, email, password)
     }
     
     /// Validates the entries in the sign-up form.
@@ -30,7 +31,8 @@ final class SignUpViewViewModel: ObservableObject {
         print("Validating Sign-up Form Entries")
         guard !fullName.trimmingCharacters(in: .whitespaces).isEmpty,
               !email.trimmingCharacters(in: .whitespaces).isEmpty,
-              !password.trimmingCharacters(in: .whitespaces).isEmpty
+              !password.trimmingCharacters(in: .whitespaces).isEmpty,
+              !repeatedPassword.trimmingCharacters(in: .whitespaces).isEmpty
         else {
             print("Please fill out all fields!")
             return false

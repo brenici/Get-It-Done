@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+///  A Login View for existing user authentication.
 struct LoginView: View {
     
     @StateObject var viewModel = LoginViewViewModel()
@@ -16,7 +17,11 @@ struct LoginView: View {
             VStack {
                 Form {
                     TextField("Email", text: $viewModel.email)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                     SecureField("Password", text: $viewModel.password)
+                        .disableAutocorrection(true)
+                        .autocapitalization(.none)
                     Button {
                         viewModel.login()
                     } label: {
