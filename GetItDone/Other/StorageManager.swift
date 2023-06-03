@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 
 /// A singleton class responsible for managing data storage database-related functionality.
 final class StorageManager {
@@ -22,7 +23,27 @@ final class StorageManager {
 
     // TODO: implement all crud operations
 
-    public func getAllItems() {}
+    public func fetchItems(for userId: String, completion: @escaping (Result<[ToDoItem], Error>) -> Void) {
+        db.collection(usersCollectionKey)
+            .document(userId)
+            .collection(itemsCollectionKey)
+            .addSnapshotListener { (querySnapshot, error) in
+                if let error = error {
+                    print("Error fetching data: \(error.localizedDescription)")
+                    completion(.failure(error))
+                    return
+                }
+                guard let documents = querySnapshot?.documents else {
+                    print("No documents found")
+                    completion(.success([]))
+                    return
+                }
+                let items = documents.compactMap { queryDocumentSnapshot in
+                    try? queryDocumentSnapshot.data(as: ToDoItem.self)
+                }
+                completion(.success(items))
+            }
+    }
 
     public func createItem(_ item: ToDoItem, for userId: String) {
         db.collection(usersCollectionKey)

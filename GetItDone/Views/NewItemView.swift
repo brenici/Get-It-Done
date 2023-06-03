@@ -23,8 +23,10 @@ struct NewItemView: View {
                     .datePickerStyle(.graphical)
             }
             Button {
-                viewModel.saveNewItem()
-                isNewItemPresented = false
+                if viewModel.validate() {
+                    viewModel.saveNewItem()
+                    isNewItemPresented = false
+                }
             } label: {
                 Text("Save")
             }
