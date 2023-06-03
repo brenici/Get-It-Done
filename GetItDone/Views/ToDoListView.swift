@@ -21,16 +21,20 @@ struct ToDoListView: View {
     var body: some View {
         NavigationView {
             VStack {
-                List(viewModel.items) { item in
-                    ToDoListItemView(item: item)
-                        .swipeActions {
-                            Button {
-                                viewModel.deleteItem(with: item.id)
-                            } label: {
-                                Text("Delete")
+                if viewModel.items.count > 0 {
+                    List(viewModel.items) { item in
+                        ToDoListItemView(item: item)
+                            .swipeActions {
+                                Button {
+                                    viewModel.deleteItem(with: item.id)
+                                } label: {
+                                    Text("Delete")
+                                }
+                                .tint(Color.red)
                             }
-                            .tint(Color.red)
-                        }
+                    }
+                } else {
+                    noItemsView
                 }
                 Button {
                     viewModel.logOut()
@@ -54,6 +58,20 @@ struct ToDoListView: View {
         .navigationViewStyle(.stack)
     }
     
+    /// A placeholder view to replace the List with 0 items.
+    @ViewBuilder private var noItemsView: some View {
+        VStack {
+            Text("No Items")
+                .font(.system(size: 50))
+                .bold()
+                .minimumScaleFactor(0.5)
+            Text("Tap the \"+\" button to add a new item")
+                .minimumScaleFactor(0.5)
+            Spacer()
+        }
+        .foregroundColor(.gray).opacity(0.3)
+    }
+    
 }
 
 struct ToDoListView_Previews: PreviewProvider {
@@ -61,5 +79,5 @@ struct ToDoListView_Previews: PreviewProvider {
     static var previews: some View {
         ToDoListView(userId: "1234")
     }
-
+    
 }
