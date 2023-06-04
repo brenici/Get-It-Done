@@ -9,47 +9,60 @@ import SwiftUI
 
 ///  A Sign-up View for registration of new users.
 struct SignUpView: View {
-
+    
     @StateObject var viewModel = SignUpViewViewModel()
     @Environment(\.dismiss) private var dismiss
-
+    
     var body: some View {
         VStack {
-            Form {
-                Section (
-                    header: ErrorMessageView(errorMessage: $viewModel.errorMessage)
-                ) {
-                    TextField("FullName", text: $viewModel.fullName)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                    TextField("Email", text: $viewModel.email)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                    SecureField("Password", text: $viewModel.password)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                    SecureField("Repeat Password", text: $viewModel.repeatedPassword)
-                        .disableAutocorrection(true)
-                        .autocapitalization(.none)
-                    ButtonView(
-                        title: "Sign Up",
-                        tint: .orange
-                    ) {
-                        viewModel.signUp()
-                    }
-                    .padding(.vertical, 10)
-                }
-            }
+            HeaderView(
+                title: "Register now!",
+                subtitle: "Get Things Done",
+                background: .blue
+            )
+            signUpForm
             VStack (spacing: 10) {
                 Text("Already Registered?")
+                    .opacity(0.5)
                 Button {
                     dismiss()
                 } label: {
                     Text("Back to Log In")
                 }
+                .accentColor(.blue)
+            }
+            .padding(.bottom, UIScreen.main.bounds.height * 0.1)
+        }
+        .ignoresSafeArea()
+    }
+    
+    @ViewBuilder var signUpForm: some View {
+        Form {
+            Section (
+                header: ErrorMessageView(errorMessage: $viewModel.errorMessage)
+            ) {
+                TextField("FullName", text: $viewModel.fullName)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                TextField("Email", text: $viewModel.email)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                SecureField("Password", text: $viewModel.password)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                SecureField("Repeat Password", text: $viewModel.repeatedPassword)
+                    .disableAutocorrection(true)
+                    .autocapitalization(.none)
+                ButtonView(
+                    title: "Sign Up",
+                    tint: .orange
+                ) {
+                    viewModel.signUp()
+                }
+                .padding(.vertical, 10)
             }
         }
-        .padding(.bottom, UIScreen.main.bounds.height * 0.05)
+        .padding(.top, 0)
     }
     
 }

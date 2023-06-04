@@ -12,7 +12,7 @@ struct ToDoListView: View {
     
     @StateObject var viewModel: ToDoListViewViewModel
     @State private var sortOption = SortOption.created
-
+    
     init(userId: String) {
         self._viewModel = StateObject(
             wrappedValue: ToDoListViewViewModel(userId: userId)
@@ -23,13 +23,13 @@ struct ToDoListView: View {
         NavigationView {
             VStack {
                 switch viewModel.items.count {
-                case 0:
-                    noItemsView
-                default:
-                    if viewModel.items.count > 1 {
-                        segmentedPickerView
-                    }
-                    toDoItemsList
+                    case 0:
+                        noItemsView
+                    default:
+                        if viewModel.items.count > 1 {
+                            segmentedPickerView
+                        }
+                        toDoItemsList
                 }
                 Button {
                     viewModel.logOut()
