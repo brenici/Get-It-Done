@@ -13,8 +13,8 @@ final class NewItemViewViewModel: ObservableObject {
     @Published var dueTime = Date()
     @Published var errorMessage = ""
     
+    /// Saves the newly created ToDoItem item
     func saveNewItem() {
-        print("creating new item...")
         guard validate() else {
             return
         }
@@ -34,7 +34,9 @@ final class NewItemViewViewModel: ObservableObject {
             isDone: false
         )
     }
-        
+    
+    /// Verifies if the title and due time are valid
+    /// - Returns: A Boolean value indicating whether the title and the due time are valid.
     public func validate() -> Bool {
         guard !title.trimmingCharacters(in: .whitespaces).isEmpty else {
             errorMessage = "Please enter a title!"
@@ -47,6 +49,9 @@ final class NewItemViewViewModel: ObservableObject {
         return true
     }
     
+    /// Verifies if the due time is valid
+    /// - Parameter dueTime: The due time expressed as `Date` value
+    /// - Returns: A Boolean value indicating whether the date is at least 10 minutes in the future
     private func isDueTimeValid(_ dueTime: Date) -> Bool {
         let minimumDueTime = Date() + (10 * 60) // + 10 minutes
         return dueTime >= minimumDueTime

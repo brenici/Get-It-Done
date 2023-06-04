@@ -20,7 +20,7 @@ final class ToDoListViewViewModel: ObservableObject {
     
     private let userId: String
     
-    /// Initialized the ViewModel with the `userId`
+    /// Initializes the ViewModel with the `userId`
     /// - Parameter userId: user ID
     init(userId: String) {
         self.userId = userId
@@ -28,13 +28,7 @@ final class ToDoListViewViewModel: ObservableObject {
     }
         
     /// Retrieves all items for a specific user.
-    ///
     /// - Parameter userId: The user ID of the logged-in user.
-    ///
-    ///  - Important: This method assigns an array of a mock item to the list of items.
-    ///
-    ///  - Note: Replace the mock item(s) with the actual implementation to fetch and populate the list of items for the logged in user.
-    ///
     private func getAllItems(for userId: String) {
         storageManager.fetchItems(for: userId) { [weak self] result in
             switch result {
@@ -46,21 +40,28 @@ final class ToDoListViewViewModel: ObservableObject {
         }
     }
     
+    /// Sorts items based on `sortOption`
+    /// - Parameter sortOption: the selected sortOption as defined in SortOption enum
+    /// - Returns: an array of sorted items
+    public func sortedItems(by sortOption: SortOption) -> [ToDoItem] {
+        return sortOption.sort(items: items)
+    }
+    
     // TODO: all CRUD methods
     
     func getItem(itemId: String) {}
     
     func updateItem(itemId: String) {}
-
+    
+    /// Deletes an item of the current user
+    /// - Parameter itemId: item ID
     public func deleteItem(with itemId: String) {
         storageManager.deleteItem(itemId, for: userId)
     }
     
-    public func sortedItems(by sortOption: SortOption) -> [ToDoItem] {
-        return sortOption.sort(items: items)
-    }
-    
     // TODO: Move to user account view
+    
+    /// Performs the log out of the current user
     public func logOut() {
         AuthManager.shared.signOut()
     }

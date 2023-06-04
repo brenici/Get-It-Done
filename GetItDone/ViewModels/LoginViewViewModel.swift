@@ -34,7 +34,6 @@ final class LoginViewViewModel: ObservableObject {
     }
     
     /// Validates the entries in the login form.
-    ///
     /// - Returns: A Boolean value indicating whether the login form entries are valid.
     private func validateLoginForm() -> Bool {
         print("Validating Login Form Entries")

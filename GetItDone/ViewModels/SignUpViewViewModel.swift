@@ -45,7 +45,6 @@ final class SignUpViewViewModel: ObservableObject {
     }
     
     /// Validates the entries in the sign-up form.
-    ///
     /// - Returns: A Boolean value indicating whether the sign-up form entries are valid.
     private func validateSignUpForm() -> Bool {
         print("Validating Sign-up Form Entries")
