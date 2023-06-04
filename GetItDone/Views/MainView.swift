@@ -9,7 +9,9 @@ import SwiftUI
 
 /// The main view of the app
 ///
-/// Presents the views based on user authentication.
+/// Presents the views based on user authentication:
+/// - `LoginView` is presented if the user in not logged in
+/// - `ToDoListView` is presented only if the user in logged in
 struct MainView: View {
     
     @StateObject var viewModel = MainViewViewModel()
@@ -21,6 +23,7 @@ struct MainView: View {
             LoginView()
         }
     }
+    
 }
 
 struct MainView_Previews: PreviewProvider {

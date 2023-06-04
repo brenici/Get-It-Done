@@ -8,6 +8,11 @@
 import SwiftUI
 
 ///  A Sign-up View for registration of new users.
+///
+/// The view contains the following elements:
+/// - a Header
+/// - a sign-up `Form` with four fields [`Full Name`, `Email`, `Password` and `Repeat Password`] and a `Sign Up` button
+/// - a button (navigation link) to dismiss the `SignUpView` and return to `LoginView`
 struct SignUpView: View {
     
     @StateObject var viewModel = SignUpViewViewModel()

@@ -7,7 +7,12 @@
 
 import SwiftUI
 
-/// A Login View for user authentication
+/// A Login View for user authentication using email and password
+///
+/// The view contains the following elements:
+/// - a Header,
+/// - a login `Form` with two fields [`email` and `password`] and a `Login` button
+/// - a navigation link to `SignUpView` for new users
 struct LoginView: View {
     
     @StateObject var viewModel = LoginViewViewModel()
