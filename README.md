@@ -1,6 +1,6 @@
  # Get It Done. An iOS Application
 
-`SwiftUI`  `iOS`  `Firebase`  `Firestore`
+`SwiftUI` `iOS` `FirebaseFirestore` `FirebaseAuth`
 
 The Get It Done is a task manager app developed using SwiftUI. It provides a user-friendly interface for managing tasks and incorporates user authentication with FirebaseAuth and data storage using FirebaseFirestore.
 
