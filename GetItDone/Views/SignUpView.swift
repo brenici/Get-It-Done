@@ -23,7 +23,8 @@ struct SignUpView: View {
             HeaderView(
                 title: "Register now!",
                 subtitle: "Get Things Done",
-                background: .blue
+                background: .purple,
+                sidesRatio: 10 / 7
             )
             signUpForm
             VStack (spacing: 10) {

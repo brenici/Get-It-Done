@@ -23,7 +23,8 @@ struct LoginView: View {
                 HeaderView(
                     title: "Get It Done",
                     subtitle: "Empower Your Productivity",
-                    background: .red
+                    background: .blue,
+                    sidesRatio: 7 / 10
                 )
                 loginForm
                 VStack (spacing: 10) {
@@ -56,7 +57,7 @@ struct LoginView: View {
                     .autocapitalization(.none)
                 ButtonView(
                     title: "Log In",
-                    tint: .blue
+                    tint: .green
                 ) {
                     viewModel.login()
                 }
@@ -64,6 +65,9 @@ struct LoginView: View {
             }
         }
         .padding(.top, 0)
+        .onAppear {
+            viewModel.password = ""
+        }
     }
     
 }

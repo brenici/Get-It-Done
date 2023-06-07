@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7A06CFC02A30912F005B34AD /* HeaderShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A06CFBF2A30912F005B34AD /* HeaderShape.swift */; };
 		7A0C372E2A2D01FA0003CDCB /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0C372D2A2D01FA0003CDCB /* HeaderView.swift */; };
 		7A0DF8822A2776F100DAB8BA /* GetItDoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0DF8812A2776F100DAB8BA /* GetItDoneApp.swift */; };
 		7A0DF8842A2776F100DAB8BA /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0DF8832A2776F100DAB8BA /* MainView.swift */; };
@@ -39,6 +40,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7A06CFBF2A30912F005B34AD /* HeaderShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderShape.swift; sourceTree = "<group>"; };
 		7A0C372D2A2D01FA0003CDCB /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		7A0DF87E2A2776F100DAB8BA /* Get It Done.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Get It Done.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0DF8812A2776F100DAB8BA /* GetItDoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetItDoneApp.swift; sourceTree = "<group>"; };
@@ -82,6 +84,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7A06CFBC2A308F01005B34AD /* ToDoListViewViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				7A0DF89B2A27905500DAB8BA /* ToDoListViewViewModel.swift */,
+				7A93B5102A2B8DFD0040BEB3 /* ToDoListItemViewViewModel.swift */,
+			);
+			path = ToDoListViewViewModel;
+			sourceTree = "<group>";
+		};
+		7A06CFBD2A308F1F005B34AD /* ToDoListView */ = {
+			isa = PBXGroup;
+			children = (
+				7A0DF8992A27904300DAB8BA /* ToDoListView.swift */,
+				7A93B50E2A2B8D7D0040BEB3 /* ToDoListItemView.swift */,
+			);
+			path = ToDoListView;
+			sourceTree = "<group>";
+		};
+		7A06CFBE2A30911B005B34AD /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				7A0C372D2A2D01FA0003CDCB /* HeaderView.swift */,
+				7A06CFBF2A30912F005B34AD /* HeaderShape.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
 		7A0DF8752A2776F100DAB8BA = {
 			isa = PBXGroup;
 			children = (
@@ -127,8 +156,7 @@
 				7A0DF88F2A2783A600DAB8BA /* MainViewViewModel.swift */,
 				7A93B4FC2A2B59570040BEB3 /* LoginViewViewModel.swift */,
 				7A93B5022A2B600C0040BEB3 /* SignUpViewViewModel.swift */,
-				7A0DF89B2A27905500DAB8BA /* ToDoListViewViewModel.swift */,
-				7A93B5102A2B8DFD0040BEB3 /* ToDoListItemViewViewModel.swift */,
+				7A06CFBC2A308F01005B34AD /* ToDoListViewViewModel */,
 				7A93B5162A2B981A0040BEB3 /* NewItemViewViewModel.swift */,
 			);
 			path = ViewModels;
@@ -140,8 +168,7 @@
 				7A0DF8832A2776F100DAB8BA /* MainView.swift */,
 				7A93B4FA2A2B56080040BEB3 /* LoginView.swift */,
 				7A93B5002A2B5FD50040BEB3 /* SignUpView.swift */,
-				7A0DF8992A27904300DAB8BA /* ToDoListView.swift */,
-				7A93B50E2A2B8D7D0040BEB3 /* ToDoListItemView.swift */,
+				7A06CFBD2A308F1F005B34AD /* ToDoListView */,
 				7A93B5142A2B98040040BEB3 /* NewItemView.swift */,
 				7A55AA762A2BDA210057CD6A /* CustomViews */,
 			);
@@ -169,7 +196,7 @@
 			isa = PBXGroup;
 			children = (
 				7A55AA772A2BDA600057CD6A /* ButtonView.swift */,
-				7A0C372D2A2D01FA0003CDCB /* HeaderView.swift */,
+				7A06CFBE2A30911B005B34AD /* Header */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -280,6 +307,7 @@
 				7A0DF8842A2776F100DAB8BA /* MainView.swift in Sources */,
 				7A93B5112A2B8DFD0040BEB3 /* ToDoListItemViewViewModel.swift in Sources */,
 				7A93B51B2A2BC8B50040BEB3 /* SortOption.swift in Sources */,
+				7A06CFC02A30912F005B34AD /* HeaderShape.swift in Sources */,
 				7A0DF89C2A27905500DAB8BA /* ToDoListViewViewModel.swift in Sources */,
 				7A93B5092A2B6E700040BEB3 /* AuthManager.swift in Sources */,
 				7A0DF8822A2776F100DAB8BA /* GetItDoneApp.swift in Sources */,

@@ -12,26 +12,34 @@ struct HeaderView: View {
     let title: String
     let subtitle: String
     let background: Color
-    
+    let sidesRatio: CGFloat
+    let curveRatio: CGFloat = 0.9
+
     var body: some View {
         ZStack {
-            Rectangle()
-                .foregroundColor(background)
+            HeaderShape(sidesRatio: sidesRatio, curveRatio: curveRatio)
+                .fill(background)
+                .shadow(
+                    color: .gray.opacity(0.5),
+                    radius: 6, x: 1, y: 1
+                )
             VStack (alignment: .center) {
                 Text(title)
-                    .font(.system(size: 50))
+                    .font(.system(size: 44))
                     .foregroundColor(Color.white)
                     .bold()
                     .minimumScaleFactor(0.5)
                     .padding(.horizontal, 10)
                     .lineLimit(1)
+                    .opacity(0.9)
                 Text(subtitle)
-                    .font(.system(size: 30))
+                    .font(.system(size: 26))
                     .foregroundColor(Color.white)
                     .bold()
                     .padding(.horizontal, 10)
                     .minimumScaleFactor(0.5)
                     .lineLimit(1)
+                    .opacity(0.8)
             }
         }
         .frame(
@@ -52,7 +60,8 @@ struct HeaderView_Previews: PreviewProvider {
         HeaderView(
             title: "Header Title",
             subtitle: "A Long Subtitle Goes Here",
-            background: .red
+            background: .blue,
+            sidesRatio: 10 / 7
         )
     }
     

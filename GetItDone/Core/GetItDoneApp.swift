@@ -18,6 +18,10 @@ struct GetItDoneApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .onAppear {
+                    // remove form/list background
+                    UITableView.appearance().backgroundColor = .clear
+                }
         }
     }
     
