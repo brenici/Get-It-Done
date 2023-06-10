@@ -11,18 +11,14 @@ struct HeaderView: View {
 
     let title: String
     let subtitle: String
+    let height: CGFloat
     let background: Color
     let sidesRatio: CGFloat
-    let curveRatio: CGFloat = 0.9
+    let controlPointRatio: (CGFloat, CGFloat)
 
     var body: some View {
         ZStack {
-            HeaderShape(sidesRatio: sidesRatio, curveRatio: curveRatio)
-                .fill(background)
-                .shadow(
-                    color: .gray.opacity(0.5),
-                    radius: 6, x: 1, y: 1
-                )
+            headerShape
             VStack (alignment: .center) {
                 Text(title)
                     .font(.system(size: 44))
@@ -44,12 +40,24 @@ struct HeaderView: View {
         }
         .frame(
             width: UIScreen.main.bounds.width,
-            height: UIScreen.main.bounds.height / 3
+            height: height
         )
         .shadow(
-            color: .gray.opacity(0.5),
+            color: background.opacity(0.2),
             radius: 6, x: 1, y: 1
         )
+    }
+    
+    @ViewBuilder var headerShape: some View {
+        HeaderShape(
+            sidesRatio: sidesRatio,
+            controlPointRatio: controlPointRatio
+        )
+            .fill(background)
+            .shadow(
+                color: .black.opacity(0.3),
+                radius: 6, x: 1, y: 1
+            )
     }
     
 }
@@ -58,10 +66,12 @@ struct HeaderView_Previews: PreviewProvider {
     
     static var previews: some View {
         HeaderView(
-            title: "Header Title",
+            title: "Short Title",
             subtitle: "A Long Subtitle Goes Here",
+            height: UIScreen.main.bounds.height / 3,
             background: .blue,
-            sidesRatio: 10 / 7
+            sidesRatio: 10 / 7,
+            controlPointRatio: (0.7, 0.2)
         )
     }
     

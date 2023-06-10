@@ -225,9 +225,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7A0DF87D2A2776F100DAB8BA /* GetItDone */ = {
+		7A0DF87D2A2776F100DAB8BA /* Get It Done */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7A0DF88C2A2776F500DAB8BA /* Build configuration list for PBXNativeTarget "GetItDone" */;
+			buildConfigurationList = 7A0DF88C2A2776F500DAB8BA /* Build configuration list for PBXNativeTarget "Get It Done" */;
 			buildPhases = (
 				7A0DF87A2A2776F100DAB8BA /* Sources */,
 				7A0DF87B2A2776F100DAB8BA /* Frameworks */,
@@ -237,7 +237,7 @@
 			);
 			dependencies = (
 			);
-			name = GetItDone;
+			name = "Get It Done";
 			packageProductDependencies = (
 				7A3937442A2A793D0082F459 /* FirebaseAuth */,
 				7A3937462A2A793D0082F459 /* FirebaseFirestore */,
@@ -278,7 +278,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7A0DF87D2A2776F100DAB8BA /* GetItDone */,
+				7A0DF87D2A2776F100DAB8BA /* Get It Done */,
 			);
 		};
 /* End PBXProject section */
@@ -523,7 +523,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7A0DF88C2A2776F500DAB8BA /* Build configuration list for PBXNativeTarget "GetItDone" */ = {
+		7A0DF88C2A2776F500DAB8BA /* Build configuration list for PBXNativeTarget "Get It Done" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7A0DF88D2A2776F500DAB8BA /* Debug */,

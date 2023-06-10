@@ -17,26 +17,36 @@ struct LoginView: View {
     
     @StateObject var viewModel = LoginViewViewModel()
 
+    let headerHeight = UIScreen.main.bounds.height / 3
+    
     var body: some View {
         NavigationView {
-            VStack {
-                HeaderView(
-                    title: "Get It Done",
-                    subtitle: "Empower Your Productivity",
-                    background: .blue,
-                    sidesRatio: 7 / 10
-                )
-                loginForm
-                VStack (spacing: 10) {
-                    Text("New user? Get It Done now!")
-                        .opacity(0.5)
-                    NavigationLink(
-                        "Create An Account",
-                        destination: SignUpView()
+            ZStack {
+                VStack(spacing: 0) {
+                    HeaderView(
+                        title: "Get It Done",
+                        subtitle: "Empower Your Productivity",
+                        height: headerHeight,
+                        background: .blue,
+                        sidesRatio: 7 / 10, // right cut
+                        controlPointRatio: (x: 0.3, y: 0.1)
                     )
-                   .accentColor(.blue)
+                    Spacer()
                 }
-                .padding(.bottom, UIScreen.main.bounds.height * 0.1)
+                .zIndex(2)
+                VStack {
+                    loginForm
+                    VStack (spacing: 10) {
+                        Text("New user? Get It Done now!")
+                            .opacity(0.5)
+                        NavigationLink(
+                            "Create An Account",
+                            destination: SignUpView()
+                        )
+                       .accentColor(.blue)
+                    }
+                    .padding(.bottom, UIScreen.main.bounds.height * 0.1)
+                }
             }
             .ignoresSafeArea()
         }
@@ -47,7 +57,12 @@ struct LoginView: View {
     @ViewBuilder var loginForm: some View {
         Form {
             Section (
-                header: ErrorMessageView(errorMessage: $viewModel.errorMessage)
+                header:
+                    VStack {
+                        Spacer()
+                        ErrorMessageView(errorMessage: $viewModel.errorMessage)
+                    }
+                    .frame(maxWidth: .infinity, minHeight: headerHeight - 16)
             ) {
                 TextField("Email", text: $viewModel.email)
                     .disableAutocorrection(true)

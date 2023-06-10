@@ -13,27 +13,27 @@ struct HeaderShape: Shape {
     ///
     /// - `sidesRatio` value 7 / 10 (or 0.7) draws a right trapezoid with a cut on the bottom left side
     /// - `sidesRatio` value 10 / 7 (or 1.43) draws a right trapezoid with the same cut on the bottom right side
-    ///
     var sidesRatio: CGFloat
     
-    /// Ratio between shape height and height from the curved bottom side
-    var curveRatio: CGFloat
+    /// Control point ratio that determines the position of the curve control point. It gets values between 0 and 1 and is positioned in the imaginary bottom rectangle formed by the cut. The values are calculated in ratio to width and height of the bottom rectangle.
+    var controlPointRatio: (x: CGFloat, y: CGFloat)
     
     func path(in rect: CGRect) -> Path {
         
-        let width = rect.width
-        let height = rect.height
-        
-        let leftSide: CGFloat = min(abs(height * sidesRatio), height)
-        let rightSide: CGFloat = min(abs(height / sidesRatio), height)
+        let leftSideHeight = min(abs(rect.height * sidesRatio), rect.height)
+        let rightSideHeight = min(abs(rect.height / sidesRatio), rect.height)
         
         let topLeftPoint = CGPoint.zero
-        let topRightPoint = CGPoint(x: width, y: 0)
-        let bottomRightPoint = CGPoint(x: width, y: leftSide)
-        let bottomLeftPoint = CGPoint(x: 0, y: rightSide)
+        let topRightPoint = CGPoint(x: rect.width, y: 0)
+        let bottomRightPoint = CGPoint(x: rect.width, y: leftSideHeight)
+        let bottomLeftPoint = CGPoint(x: 0, y: rightSideHeight)
+        
+        let cutHeight = abs(leftSideHeight - rightSideHeight)
+        let topInset = min(leftSideHeight, rightSideHeight)
+        
         let controlPoint = CGPoint(
-            x: abs(rect.midX * sidesRatio),
-            y: min(height, abs(height * curveRatio)) - (abs(rightSide - leftSide) / 2)
+            x: abs(rect.width * controlPointRatio.x),
+            y: topInset + abs(cutHeight * controlPointRatio.y)
         )
         
         var path = Path()
@@ -43,9 +43,7 @@ struct HeaderShape: Shape {
         path.addLine(to: bottomRightPoint)
         path.addQuadCurve(to: bottomLeftPoint, control: controlPoint)
         path.closeSubpath()
-        
-        print("control point: \(controlPoint)")
-        
+
         return path
         
     }

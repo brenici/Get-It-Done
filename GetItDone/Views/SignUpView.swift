@@ -17,27 +17,36 @@ struct SignUpView: View {
     
     @StateObject var viewModel = SignUpViewViewModel()
     @Environment(\.dismiss) private var dismiss
-    
+    let headerHeight = UIScreen.main.bounds.height / 3
+
     var body: some View {
-        VStack {
-            HeaderView(
-                title: "Register now!",
-                subtitle: "Get Things Done",
-                background: .purple,
-                sidesRatio: 10 / 7
-            )
-            signUpForm
-            VStack (spacing: 10) {
-                Text("Already Registered?")
-                    .opacity(0.5)
-                Button {
-                    dismiss()
-                } label: {
-                    Text("Back to Log In")
-                }
-                .accentColor(.blue)
+        ZStack {
+            VStack {
+                HeaderView(
+                    title: "Register now!",
+                    subtitle: "Get Things Done",
+                    height: headerHeight,
+                    background: .purple,
+                    sidesRatio: 10 / 7,  // left cut
+                    controlPointRatio: (x: 0.7, y: 0.1)
+                )
+                Spacer()
             }
-            .padding(.bottom, UIScreen.main.bounds.height * 0.1)
+            .zIndex(2)
+            VStack {
+                signUpForm
+                VStack (spacing: 10) {
+                    Text("Already Registered?")
+                        .opacity(0.5)
+                    Button {
+                        dismiss()
+                    } label: {
+                        Text("Back to Log In")
+                    }
+                    .accentColor(.blue)
+                }
+                .padding(.bottom, UIScreen.main.bounds.height * 0.1)
+            }
         }
         .ignoresSafeArea()
     }
@@ -45,7 +54,12 @@ struct SignUpView: View {
     @ViewBuilder var signUpForm: some View {
         Form {
             Section (
-                header: ErrorMessageView(errorMessage: $viewModel.errorMessage)
+                header:
+                    VStack {
+                        Spacer()
+                        ErrorMessageView(errorMessage: $viewModel.errorMessage)
+                    }
+                    .frame(maxWidth: .infinity, minHeight: headerHeight - 16)
             ) {
                 TextField("FullName", text: $viewModel.fullName)
                     .disableAutocorrection(true)
