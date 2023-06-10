@@ -10,7 +10,6 @@ import Foundation
 /// A struct representing a User.
 ///
 /// - Note: `id` property should be a unique identifier for each `User` instance.
-///
 struct User: Codable {
     
     let id: String

@@ -69,6 +69,7 @@ struct ToDoListView: View {
         }
         .listStyle(.plain)
         .animation(.easeInOut, value: items)
+//        .clipped()
     }
     
     /// A placeholder view to replace the List with 0 items.

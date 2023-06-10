@@ -13,26 +13,18 @@ struct GetItDoneApp: App {
     
     init() {
         FirebaseApp.configure()
+        removeFormBackground()
     }
     
     var body: some Scene {
         WindowGroup {
             MainView()
-                .onAppear {
-                    
-                    // prevent default NavigationBar appearance when scrolling up
-                    let appearance = UINavigationBarAppearance()
-                    appearance.backgroundEffect = nil
-                    appearance.backgroundColor = .clear
-                    appearance.backgroundImage = UIImage()
-                    appearance.shadowImage = UIImage()
-                    appearance.shadowColor = .clear
-                    UINavigationBar.appearance().standardAppearance = appearance
-                    
-                    // prevent form default background
-                    UITableView.appearance().backgroundColor = .clear
-                }
         }
+    }
+    
+    /// Removes the default background of a form or list.
+    private func removeFormBackground() {
+        UITableView.appearance().backgroundColor = .clear
     }
     
 }

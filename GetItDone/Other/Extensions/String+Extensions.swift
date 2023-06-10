@@ -1,5 +1,5 @@
 //
-//  StringExtension.swift
+//  String+Extensions.swift
 //  GetItDone
 //
 //  Created by Emilian Brenici on 03/06/2023.

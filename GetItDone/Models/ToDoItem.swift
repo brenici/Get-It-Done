@@ -7,7 +7,7 @@
 
 import Foundation
 
-/// A struct representing a ToDo item.
+/// A struct representing a task / to-do item.
 ///
 /// - Note: `id` property should be a unique identifier for each `ToDoItem` instance.
 struct ToDoItem: Codable, Identifiable, Hashable {

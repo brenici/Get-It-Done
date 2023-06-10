@@ -5,7 +5,7 @@
 //  Created by Emilian Brenici on 31/05/2023.
 //
 
-import Foundation
+import UIKit
 
 /// The class serves as ViewModel for the `MainView`
 final class MainViewViewModel: ObservableObject {
@@ -28,7 +28,20 @@ final class MainViewViewModel: ObservableObject {
     /// Indicates whether the user is currently logged in.
     /// - Returns: `true` if the user is logged in, `false` otherwise.
     public var isLoggedIn: Bool {
-        return authManager.isLoggedIn
+        let loggedIn = authManager.isLoggedIn
+        toggleNavigationBarAppearance(loggedIn)
+        return loggedIn
+    }
+    
+    /// Toggles the appearance of the navigation bar every time a user logs in or logs out.
+    /// - Parameter loggedIn: A Boolean value indicating the logged-in state.
+    /// - Note: If the user is not logged in, the navigation bar appearance is cleared to prevent interference with the log-in and sign-up `HeaderView`.
+    private func toggleNavigationBarAppearance(_ loggedIn: Bool) {
+        if loggedIn {
+            UINavigationBar.appearance().restoreDefaultAppearance()
+        } else {
+            UINavigationBar.appearance().setClearAppearance()
+        }
     }
     
 }
