@@ -81,6 +81,7 @@ struct LoginView: View {
         }
         .padding(.top, 0)
         .onAppear {
+            // clear the password for security reasons
             viewModel.password = ""
         }
     }

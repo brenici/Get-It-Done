@@ -26,9 +26,6 @@ struct ToDoListView: View {
                     case 0:
                         noItemsView
                     default:
-                        if viewModel.items.count > 1 {
-                            segmentedPickerView
-                        }
                         toDoItemsList
                 }
                 Button {
@@ -55,16 +52,20 @@ struct ToDoListView: View {
     
     @ViewBuilder private var toDoItemsList: some View {
         let items = viewModel.sortedItems(by: sortOption)
-        List(items) { item in
-            ToDoListItemView(item: item)
-                .swipeActions {
-                    Button {
-                        viewModel.deleteItem(with: item.id)
-                    } label: {
-                        Text("Delete")
-                    }
-                    .tint(Color.red)
+        List {
+            Section(header: segmentedPickerView) {
+                ForEach(items) { item in
+                    ToDoListItemView(item: item)
+                        .swipeActions {
+                            Button {
+                                viewModel.deleteItem(with: item.id)
+                            } label: {
+                                Text("Delete")
+                            }
+                            .tint(Color.red)
+                        }
                 }
+            }
         }
         .listStyle(.plain)
         .animation(.easeInOut, value: items)
@@ -86,13 +87,17 @@ struct ToDoListView: View {
     
     /// A segmented picker view used for sorting of ToDo items
     @ViewBuilder private var segmentedPickerView: some View {
-        Picker("Sort By", selection: $sortOption) {
-            ForEach(SortOption.allCases, id: \.self) { option in
-                Text(option.rawValue).tag(option)
+        if viewModel.items.count > 1 {
+            Picker("Sort By", selection: $sortOption) {
+                ForEach(SortOption.allCases, id: \.self) { option in
+                    Text(option.rawValue).tag(option)
+                }
             }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding(0)
+        } else {
+            EmptyView()
         }
-        .pickerStyle(SegmentedPickerStyle())
-        .padding()
     }
     
 }
