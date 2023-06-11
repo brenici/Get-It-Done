@@ -8,43 +8,22 @@
 import SwiftUI
 
 struct HeaderView: View {
-
+    
     let title: String
     let subtitle: String
     let height: CGFloat
     let background: Color
     let sidesRatio: CGFloat
     let controlPointRatio: (CGFloat, CGFloat)
-
+    
     var body: some View {
         ZStack {
             headerShape
-            VStack (alignment: .center) {
-                Text(title)
-                    .font(.system(size: 44))
-                    .foregroundColor(Color.white)
-                    .bold()
-                    .minimumScaleFactor(0.5)
-                    .padding(.horizontal, 10)
-                    .lineLimit(1)
-                    .opacity(0.9)
-                Text(subtitle)
-                    .font(.system(size: 26))
-                    .foregroundColor(Color.white)
-                    .bold()
-                    .padding(.horizontal, 10)
-                    .minimumScaleFactor(0.5)
-                    .lineLimit(1)
-                    .opacity(0.8)
-            }
+            gradientTitle
         }
         .frame(
             width: UIScreen.main.bounds.width,
             height: height
-        )
-        .shadow(
-            color: background.opacity(0.2),
-            radius: 6, x: 1, y: 1
         )
     }
     
@@ -58,6 +37,34 @@ struct HeaderView: View {
                 color: .black.opacity(0.3),
                 radius: 6, x: 1, y: 1
             )
+    }
+    
+    @ViewBuilder var gradientTitle: some View {
+        LinearGradient(
+            gradient: Gradient(colors: [.yellow, .white, .green]),
+            startPoint: .leading,
+            endPoint: .trailing
+        )
+            .frame(width: UIScreen.main.bounds.width, height: 120)
+            .mask(headerTitle)
+    }
+    
+    @ViewBuilder var headerTitle: some View {
+        VStack (alignment: .center) {
+            Text(title)
+                .font(.system(size: 44))
+                .bold()
+                .minimumScaleFactor(0.5)
+                .padding(.horizontal, 10)
+                .lineLimit(1)
+            Text(subtitle)
+                .font(.system(size: 26))
+                .bold()
+                .padding(.horizontal, 10)
+                .minimumScaleFactor(0.5)
+                .lineLimit(1)
+                .opacity(0.8)
+        }
     }
     
 }
