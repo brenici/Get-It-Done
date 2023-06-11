@@ -21,8 +21,6 @@ final class StorageManager {
 
     // MARK: - Items Storage
 
-    // TODO: implement all crud operations
-
     public func fetchItems(for userId: String, completion: @escaping (Result<[ToDoItem], Error>) -> Void) {
         db.collection(usersCollectionKey)
             .document(userId)
@@ -79,7 +77,5 @@ final class StorageManager {
             .document(userObject.id)
             .setData(userObject.asDictionary())
     }
-    
-    // TODO: add other crud operations
-    
+        
 }

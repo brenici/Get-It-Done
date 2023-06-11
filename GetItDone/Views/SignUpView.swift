@@ -67,12 +67,9 @@ struct SignUpView: View {
                 TextField("Email", text: $viewModel.email)
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
-                SecureField("Password", text: $viewModel.password)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
-                SecureField("Repeat Password", text: $viewModel.repeatedPassword)
-                    .disableAutocorrection(true)
-                    .autocapitalization(.none)
+                    .keyboardType(.emailAddress)
+                RevealableSecureField(placeholder: "Password", text: $viewModel.password)
+                RevealableSecureField(placeholder: "Repeat Password", text: $viewModel.repeatedPassword)
                 ButtonView(
                     title: "Sign Up",
                     tint: .orange

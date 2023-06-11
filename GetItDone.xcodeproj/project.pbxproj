@@ -38,6 +38,7 @@
 		7A93B5172A2B981A0040BEB3 /* NewItemViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B5162A2B981A0040BEB3 /* NewItemViewViewModel.swift */; };
 		7A93B51B2A2BC8B50040BEB3 /* SortOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A93B51A2A2BC8B50040BEB3 /* SortOption.swift */; };
 		7AF861942A35055200C7C145 /* UINavigationBar+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF861932A35055200C7C145 /* UINavigationBar+Extensions.swift */; };
+		7AF861962A3605DD00C7C145 /* RevealableSecureField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF861952A3605DD00C7C145 /* RevealableSecureField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,6 +71,7 @@
 		7A93B5162A2B981A0040BEB3 /* NewItemViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewItemViewViewModel.swift; sourceTree = "<group>"; };
 		7A93B51A2A2BC8B50040BEB3 /* SortOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortOption.swift; sourceTree = "<group>"; };
 		7AF861932A35055200C7C145 /* UINavigationBar+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Extensions.swift"; sourceTree = "<group>"; };
+		7AF861952A3605DD00C7C145 /* RevealableSecureField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RevealableSecureField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +201,7 @@
 			children = (
 				7A55AA772A2BDA600057CD6A /* ButtonView.swift */,
 				7A06CFBE2A30911B005B34AD /* Header */,
+				7AF861952A3605DD00C7C145 /* RevealableSecureField.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				7A93B4FB2A2B56080040BEB3 /* LoginView.swift in Sources */,
 				7A93B50D2A2B70500040BEB3 /* Encodable+Extensions.swift in Sources */,
 				7A93B4F92A2B53CF0040BEB3 /* User.swift in Sources */,
+				7AF861962A3605DD00C7C145 /* RevealableSecureField.swift in Sources */,
 				7A0C372E2A2D01FA0003CDCB /* HeaderView.swift in Sources */,
 				7A55AA782A2BDA600057CD6A /* ButtonView.swift in Sources */,
 			);
@@ -386,7 +390,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -441,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
