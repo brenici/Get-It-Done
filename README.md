@@ -4,16 +4,18 @@
 
 The Get It Done is a task manager for iOS app developed using SwiftUI. It provides a user-friendly interface for managing tasks and incorporates user authentication with FirebaseAuth and data storage using FirebaseFirestore.
 
+![GetItDone_preview](https://github.com/brenici/Get-It-Done/assets/18484454/cb1b7b32-b746-4925-a288-c0ff25dbb5e0)
+
 The app is built using the MVVM (Model-View-ViewModel) pattern.
 
 ## Features
 
 - User authentication: Users can create an account, log in, and log out to access their personalized task manager.
-- Task management: Users can create, edit, and delete tasks. Each task includes a title, due time, and completion status.
+- Task management: Users can create and delete tasks and update their completion status. Each task includes a title, due time, and completion status.
 - Task sorting: Users can sort the tasks based on their completion status, creation time, due time and by title.
-- A customizable title header view with a trapezoid shape and an adjustable curved bottom side.
-- A customizable NavigationBar based on current view.
-- Animated form input validation error messages.
+- Customizable title header view with a trapezoid shape and an adjustable curved bottom side.
+- Customizable Navigation Bar based on current view.
+- Animated form input validation error message.
 
 ## Installation
 
