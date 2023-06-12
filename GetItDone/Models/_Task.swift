@@ -1,5 +1,5 @@
 //
-//  ToDoItem.swift
+//  _Task.swift
 //  GetItDone
 //
 //  Created by Emilian Brenici on 31/05/2023.
@@ -7,10 +7,10 @@
 
 import Foundation
 
-/// A struct representing a task / to-do item.
+/// A struct representing a task.
 ///
-/// - Note: `id` property should be a unique identifier for each `ToDoItem` instance.
-struct ToDoItem: Codable, Identifiable, Hashable {
+/// - Note: `id` property should be a unique identifier for each `_Task` instance.
+struct _Task: Codable, Identifiable, Hashable {
     
     let id: String
     let title: String

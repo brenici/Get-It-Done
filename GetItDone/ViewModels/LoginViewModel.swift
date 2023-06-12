@@ -1,5 +1,5 @@
 //
-//  LoginViewViewModel.swift
+//  LoginViewModel.swift
 //  GetItDone
 //
 //  Created by Emilian Brenici on 03/06/2023.
@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class LoginViewViewModel: ObservableObject {
+/// The class serves as ViewModel for the `LoginView`
+final class LoginViewModel: ObservableObject {
     
     @Published var email = ""
     @Published var password = ""

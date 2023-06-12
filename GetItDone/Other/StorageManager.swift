@@ -15,16 +15,16 @@ final class StorageManager {
     static let shared = StorageManager()
 
     private let usersCollectionKey = "users"
-    private let itemsCollectionKey = "todoItems"
+    private let tasksCollectionKey = "tasks"
 
     private let db = Firestore.firestore()
 
-    // MARK: - Items Storage
+    // MARK: - Task Storage
 
-    public func fetchItems(for userId: String, completion: @escaping (Result<[ToDoItem], Error>) -> Void) {
+    public func fetchTasks(for userId: String, completion: @escaping (Result<[_Task], Error>) -> Void) {
         db.collection(usersCollectionKey)
             .document(userId)
-            .collection(itemsCollectionKey)
+            .collection(tasksCollectionKey)
             .addSnapshotListener { (querySnapshot, error) in
                 if let error = error {
                     print("Error fetching data: \(error.localizedDescription)")
@@ -36,36 +36,34 @@ final class StorageManager {
                     completion(.success([]))
                     return
                 }
-                let items = documents.compactMap { queryDocumentSnapshot in
-                    try? queryDocumentSnapshot.data(as: ToDoItem.self)
+                let tasks = documents.compactMap { queryDocumentSnapshot in
+                    try? queryDocumentSnapshot.data(as: _Task.self)
                 }
-                completion(.success(items))
+                completion(.success(tasks))
             }
     }
 
-    public func createItem(_ item: ToDoItem, for userId: String) {
+    public func createTask(_ task: _Task, for userId: String) {
         db.collection(usersCollectionKey)
             .document(userId)
-            .collection(itemsCollectionKey)
-            .document(item.id)
-            .setData(item.asDictionary())
+            .collection(tasksCollectionKey)
+            .document(task.id)
+            .setData(task.asDictionary())
     }
     
-    public func updateItem(_ item: ToDoItem, for userId: String) {
+    public func updateTask(_ task: _Task, for userId: String) {
         db.collection(usersCollectionKey)
             .document(userId)
-            .collection(itemsCollectionKey)
-            .document(item.id)
-            .setData(item.asDictionary())
+            .collection(tasksCollectionKey)
+            .document(task.id)
+            .setData(task.asDictionary())
     }
 
-    public func getItem(id: String) {}
-
-    public func deleteItem(_ itemId: String, for userId: String) {
+    public func deleteTask(_ taskId: String, for userId: String) {
         db.collection(usersCollectionKey)
             .document(userId)
-            .collection(itemsCollectionKey)
-            .document(itemId)
+            .collection(tasksCollectionKey)
+            .document(taskId)
             .delete()
     }
     

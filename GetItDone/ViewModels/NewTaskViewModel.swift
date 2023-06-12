@@ -1,5 +1,5 @@
 //
-//  NewItemViewViewModel.swift
+//  NewTaskViewModel.swift
 //  GetItDone
 //
 //  Created by Emilian Brenici on 03/06/2023.
@@ -7,26 +7,26 @@
 
 import Foundation
 
-final class NewItemViewViewModel: ObservableObject {
+final class NewTaskViewModel: ObservableObject {
     
     @Published var title = ""
     @Published var dueTime = Date()
     @Published var errorMessage = ""
     
-    /// Saves the newly created ToDoItem item
-    func saveNewItem() {
+    /// Saves the newly created task
+    func saveNewTask() {
         guard validate() else {
             return
         }
         let userId = AuthManager.shared.currentUserId
-        let newItem = buildNewItem()
-        StorageManager.shared.createItem(newItem, for: userId)
+        let newTask = buildNewTask()
+        StorageManager.shared.createTask(newTask, for: userId)
     }
     
-    /// Builds a new ToDoItem object based on title and dueTime and using a UUID unique id
-    /// - Returns: ToDoItem object
-    private func buildNewItem() -> ToDoItem {
-        return ToDoItem(
+    /// Builds a new Task object based on title and dueTime and using a UUID unique id
+    /// - Returns: Task object
+    private func buildNewTask() -> _Task {
+        return _Task(
             id: UUID().uuidString,
             title: title,
             dueTime: dueTime.timeIntervalSince1970,

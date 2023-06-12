@@ -15,7 +15,7 @@ import SwiftUI
 /// - a navigation link to `SignUpView` for new users
 struct LoginView: View {
     
-    @StateObject var viewModel = LoginViewViewModel()
+    @StateObject var viewModel = LoginViewModel()
 
     let headerHeight = UIScreen.main.bounds.height / 3
     
@@ -51,7 +51,7 @@ struct LoginView: View {
             .ignoresSafeArea()
         }
         .navigationViewStyle(StackNavigationViewStyle())
-        .accentColor(.white)
+        .accentColor(.white) // keeps the back button accent color in line with the header style
     }
     
     @ViewBuilder var loginForm: some View {

@@ -1,5 +1,5 @@
 //
-//  SignUpViewViewModel.swift
+//  SignUpViewModel.swift
 //  GetItDone
 //
 //  Created by Emilian Brenici on 03/06/2023.
@@ -7,7 +7,8 @@
 
 import Foundation
 
-final class SignUpViewViewModel: ObservableObject {
+/// The class serves as ViewModel for the `SignUpView`
+final class SignUpViewModel: ObservableObject {
     
     @Published var fullName = ""
     @Published var email = ""

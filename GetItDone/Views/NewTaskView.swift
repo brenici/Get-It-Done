@@ -1,5 +1,5 @@
 //
-//  NewItemView.swift
+//  NewTaskView.swift
 //  GetItDone
 //
 //  Created by Emilian Brenici on 03/06/2023.
@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-struct NewItemView: View {
+struct NewTaskView: View {
     
-    @StateObject var viewModel = NewItemViewViewModel()
-    @Binding var isNewItemPresented: Bool
+    @StateObject var viewModel = NewTaskViewModel()
+    @Binding var isNewTaskViewPresented: Bool
 
     var body: some View {
         VStack(spacing: 0) {
-            Text("New Item")
+            Text("New Task")
                 .font(.title3)
                 .bold()
                 .padding(.top, 20)
@@ -30,8 +30,8 @@ struct NewItemView: View {
                         tint: .green
                     ) {
                         if viewModel.validate() {
-                            viewModel.saveNewItem()
-                            isNewItemPresented = false
+                            viewModel.saveNewTask()
+                            isNewTaskViewPresented = false
                         }
                     }
                     .padding(.vertical, 10)
@@ -43,10 +43,10 @@ struct NewItemView: View {
 
 }
 
-struct NewItemView_Previews: PreviewProvider {
+struct NewTaskView_Previews: PreviewProvider {
     
     static var previews: some View {
-        NewItemView(isNewItemPresented: Binding(get: {
+        NewTaskView(isNewTaskViewPresented: Binding(get: {
             return true
         }, set: { _ in
             //

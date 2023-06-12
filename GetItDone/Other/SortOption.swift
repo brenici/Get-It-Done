@@ -14,15 +14,15 @@ enum SortOption: String, CaseIterable {
     case dueTime = "Due Time"
     case completed = "Completed"
     
-    func sort(items: [ToDoItem]) -> [ToDoItem] {
-        var sortedItems: [ToDoItem] = []
+    func sort(tasks: [_Task]) -> [_Task] {
+        var sortedTasks: [_Task] = []
         switch self {
             case .created:
-                sortedItems = items.sorted {
+                sortedTasks = tasks.sorted {
                     $0.creationTime > $1.creationTime
                 }
             case .title:
-                sortedItems = items.sorted {
+                sortedTasks = tasks.sorted {
                     if $0.title != $1.title {
                         return $0.title < $1.title
                     } else {
@@ -30,11 +30,11 @@ enum SortOption: String, CaseIterable {
                     }
                 }
             case .dueTime:
-                sortedItems = items.sorted {
+                sortedTasks = tasks.sorted {
                     $0.dueTime < $1.dueTime
                 }
             case .completed:
-                sortedItems = items.sorted {
+                sortedTasks = tasks.sorted {
                     if $0.isDone != $1.isDone {
                         return !$0.isDone && $1.isDone
                     } else {
@@ -42,7 +42,7 @@ enum SortOption: String, CaseIterable {
                     }
                 }
         }
-        return sortedItems
+        return sortedTasks
     }
 
 }

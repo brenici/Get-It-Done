@@ -1,5 +1,5 @@
 //
-//  ToDoListItemView.swift
+//  TaskListCellView.swift
 //  GetItDone
 //
 //  Created by Emilian Brenici on 03/06/2023.
@@ -7,31 +7,32 @@
 
 import SwiftUI
 
-struct ToDoListItemView: View {
-
-    @StateObject var viewModel = ToDoListItemViewViewModel()
+struct TaskListCellView: View {
     
-    let item: ToDoItem
+    @StateObject var viewModel = TaskListCellViewModel()
+    
+    let task: _Task
     
     var body: some View {
         HStack(spacing: 16) {
             Button{
-                viewModel.toggleIsDone(for: item)
+                viewModel.toggleIsDone(for: task)
             } label: {
-                Image(systemName: item.isDone ? "checkmark.circle.fill" : "circle")
+                Image(systemName: task.isDone ? "checkmark.circle.fill" : "circle")
                     .font(.title2)
                     .foregroundColor(.blue)
             }
             VStack(alignment: .leading) {
-                Text(item.title)
-                    .font(.title3)
+                Text(task.title)
+                    .font(.system(size: 16))
                 Text(
-                    Date(timeIntervalSince1970: item.dueTime).formatted(
+                    Date(timeIntervalSince1970: task.dueTime).formatted(
                         date: .abbreviated,
                         time: .shortened
                     )
                 )
-                .foregroundColor(Color(.secondaryLabel))
+                    .font(.system(size: 15))
+                    .foregroundColor(Color(.secondaryLabel))
             }
             Spacer()
         }
@@ -39,13 +40,13 @@ struct ToDoListItemView: View {
     
 }
 
-struct ToDoListItemView_Previews: PreviewProvider {
+struct TaskListCellView_Previews: PreviewProvider {
     
     static var previews: some View {
-        ToDoListItemView(
-            item: .init(
+        TaskListCellView(
+            task: .init(
                 id: "1234567890",
-                title: "A new item",
+                title: "A new task title",
                 dueTime: 1687122433,
                 creationTime: 1686122893.333,
                 isDone: false

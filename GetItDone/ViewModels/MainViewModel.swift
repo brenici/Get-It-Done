@@ -1,5 +1,5 @@
 //
-//  MainViewViewModel.swift
+//  MainViewModel.swift
 //  GetItDone
 //
 //  Created by Emilian Brenici on 31/05/2023.
@@ -8,7 +8,7 @@
 import UIKit
 
 /// The class serves as ViewModel for the `MainView`
-final class MainViewViewModel: ObservableObject {
+final class MainViewModel: ObservableObject {
     
     @Published var currentUserId: String = ""
     
@@ -26,7 +26,6 @@ final class MainViewViewModel: ObservableObject {
     }
 
     /// Indicates whether the user is currently logged in.
-    /// - Returns: `true` if the user is logged in, `false` otherwise.
     public var isLoggedIn: Bool {
         let loggedIn = authManager.isLoggedIn
         toggleNavigationBarAppearance(loggedIn)

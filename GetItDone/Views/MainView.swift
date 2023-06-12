@@ -11,14 +11,14 @@ import SwiftUI
 ///
 /// Presents the views based on user authentication:
 /// - `LoginView` is presented if the user in not logged in
-/// - `ToDoListView` is presented only if the user in logged in
+/// - `TaskListView` is presented only if the user in logged in
 struct MainView: View {
     
-    @StateObject var viewModel = MainViewViewModel()
+    @StateObject var viewModel = MainViewModel()
     
     var body: some View {
         if viewModel.isLoggedIn && !viewModel.currentUserId.isEmpty {
-            ToDoListView(userId: viewModel.currentUserId)
+            TaskListView(userId: viewModel.currentUserId)
         } else {
             LoginView()
         }

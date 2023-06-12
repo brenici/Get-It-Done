@@ -15,7 +15,7 @@ import SwiftUI
 /// - a button (navigation link) to dismiss the `SignUpView` and return to `LoginView`
 struct SignUpView: View {
     
-    @StateObject var viewModel = SignUpViewViewModel()
+    @StateObject var viewModel = SignUpViewModel()
     @Environment(\.dismiss) private var dismiss
     let headerHeight = UIScreen.main.bounds.height / 3
 
